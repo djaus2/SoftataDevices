@@ -1,5 +1,5 @@
 # Softata
-Updared base Arduino Softata code from Soft=ata repository
+Updared base Arduino Softata code from Soft-ata repository
 
 This is the arduino code for interacting with devices from a Raspbery Pi Pico W.
 
