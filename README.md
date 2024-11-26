@@ -11,7 +11,7 @@ Grove - | - Sensors
         | - Displays
 ```
 
-- Each of the 3 device types on the right inherit commomn properties from teh Grove class.
+- Each of the 3 device types on the right inherit commomn properties from the Grove class.
 - Each of the classes on the right have specific properties as well
-  - Some of the device class propeties as universal fro all deviecs of that type
+  - Some of the device class propeties as universal from all deviecs of that type
   - Some device class properties as specific to the the device
