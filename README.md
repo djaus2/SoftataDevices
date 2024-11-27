@@ -41,8 +41,8 @@ SoftataDevice
         UltrasonicRanger
 ```
 
-The following is the files for the Arduino code for Sofatata as in  [djaus2/Soft-ata/Softata](https://github.com/djaus2/Soft-ata/Softata). The files in this repository are those from the src folder plus some from the root folder. 
-> The Softata repsository needs to be modified so as reove the src folder from this Softata folder plus those extra files, and for the softatta sketvch there tot to reference this repository.
+TThe files in this repository are those from the src folder [^1] fromthe Softata sketch in the Softa-tat repository  the  plus some from the root of the sketch folder. The Soft-ata repsository needs to be modified so as reove the src folder from this Softata folder plus those extra files, and for the softatta sketvch there tot to reference this repository.
+
 
 ```
 Softata
@@ -87,4 +87,6 @@ Softata
     │
     └───
 ```
+
+[^1]: This is the first footnote
 
