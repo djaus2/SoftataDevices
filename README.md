@@ -41,3 +41,50 @@ SoftataDevice
         UltrasonicRanger
 ```
 
+The following is the files for the Arduino code for Sofatata as in  [djaus2/Soft-ata/Softata](https://github.com/djaus2/Soft-ata/Softata). The files in this repository are those from the src folder plus some from the root folder. 
+> The Softata repsository needs to be modified so as reove the src folder from this Softata folder plus those extra files, and for the softatta sketvch there tot to reference this repository.
+
+```
+Softata
+│   Connect2WiFi.cpp
+│   Connect2WiFi.h
+│   devicesLists.h
+│   iothub.h
+│   menu.cpp
+│   menu.h
+│   NetworkSettings.h
+│   readme.md
+│   rpiboards.h
+│   rpiwatchdog.c
+│   rpiwatchdog.h
+│   serial_macros.h
+│   Softata.h
+│   Softata.ino
+│   SoftataCore2.h
+│   SoftataOTA.h
+│
+└───src
+    │   adrafruit_neopixel_display.cpp
+    │   custom_bargraph_display.cpp
+    │   grove.h
+    │   grove_actuator.h
+    │   grove_bargraph.cpp
+    │   grove_bme280.cpp
+    │   grove_dht11.cpp
+    │   grove_dhtxx.cpp
+    │   grove_displays.h
+    │   grove_environsensors.h
+    │   grove_OLED_096_display.cpp
+    │   grove_relay.cpp
+    │   grove_rgb_lcd_display.cpp
+    │   grove_sensor.h
+    │   grove_sensorsimulator.cpp
+    │   grove_urange.cpp
+    │   ic_74hc595_shiftRegister.cpp
+    │   ic_74hc595_shiftRegister.h
+    │   servo.cpp
+    │   SIPO_74HC595.cpp
+    │
+    └───
+```
+
