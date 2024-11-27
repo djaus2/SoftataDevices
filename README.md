@@ -48,7 +48,17 @@ There is one example sketch thus far in the examples folder, interrogate. This w
 
 ## Usage
 Download the zip file, ``` [Code]-Clone-Download Zip```, green button top right when at root of the repository in GitHub.
-Create a new sketch then Sketch->Include Library->Add zip file and browse to the downloaded zip file
+Create a new sketch then Sketch->Include Library->Add zip file and browse to the downloaded zip file.
+The required includes are as per the ```interrogate``` sketch:
+
+```cpp
+#include <grove_sensor.h>
+#include <grove_environsensors.h>
+#include <grove_displays.h>
+#include <grove_actuator.h>
+```
+
+You may wish to add ```grove.h```
 
 
 ## Soft-ata/Softata Sketch Code
