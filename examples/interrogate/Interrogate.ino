@@ -3,7 +3,7 @@
 ****************************************************************
 *
 * Interrogate the API without connection to peripheral devices. 
-* That is can instantiate a class but not call Setup()
+* That can instantiate a class without calling Setup().
 *
 ****************************************************************/
 #include <grove_sensor.h>
