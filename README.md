@@ -64,7 +64,7 @@ You may wish to add ```grove.h```
 
 ## Notes:
 
-There are added features in this Softaata API compared to that in Softa-ata. These changes are meant to keep knowledge of devices in the sketch code such that the remote code cam interrogate the device to determine what it can orchestrate minimising the knowledge of Softata that the remote application needs to have.
+There are added features in this Softaata API compared to that in Softa-ata. These changes are meant to keep knowledge of devices in the sketch code such that the remote code can interrogate the device to determine what it can orchestrate minimising the knowledge of Softata that the remote application needs to have.
 
 
 ## Soft-ata/Softata Sketch Code
