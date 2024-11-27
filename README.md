@@ -47,7 +47,8 @@ The files in this repository are those from the src folder from the Softata Sket
 There is one example sketch thus far in the examples folder, interrogate. This will run on a RPi Pico W configured for Arduino and return information about supported devices without actually needing any to be connected.
 
 ## Usage
-Downlaod the zip file 
+Download the zip file, ``` [Code]-Clone-Download Zip```, green button top right when at root of the repository in GitHub.
+Create a new sketch then Sketch->Include Library->Add zip file and browse to the downloaded zip file
 
 
 ## Soft-ata/Softata Sketch Code
