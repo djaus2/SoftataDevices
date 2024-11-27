@@ -1,7 +1,7 @@
 # Softata
 Updared base Arduino Softata code from [Soft-ata repository](https://github.com/djaus2/Soft-ata)
 
-This is the Arduino code for interacting with devices from a Raspbery Pi Pico W. The top level code that orchestrates the remote interaction with these devices is separated an not included here. That remains (subject to an 
+This is the Arduino code for interacting with devices from a Raspbery Pi Pico W. The top level code that orchestrates the remote interaction with these devices is separated is not included here. That remains (subject to an 
 
 Devices are from one of the following classes
 
