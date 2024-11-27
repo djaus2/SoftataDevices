@@ -41,9 +41,13 @@ SoftataDevice
         UltrasonicRanger
 ```
 
-TThe files in this repository are those from the src folder [^1] fromthe Softata sketch in the Softa-tat repository  the  plus some from the root of the sketch folder. The Soft-ata repsository needs to be modified so as reove the src folder from this Softata folder plus those extra files, and for the softatta sketvch there tot to reference this repository.
+The files in this repository are those from the src folder from the Softata Sketch in the Softa-ata repository _( see below)_  plus some from the root of the sketch folder. The Soft-ata repsository needs to be modified so as remove the src folder from this Softata folder plus those extra files, and for the softatta sketvch there to to reference this repository.
+
+## Samople Code
+There is one example sketch thus far in the examples folder, interrogate. This will run on a RPi Pico W configured for Arduino and return information about supported devices without actually needing any to be connected.
 
 
+## Soft-ata/Softata Sketch Code
 ```
 Softata
 │   Connect2WiFi.cpp
@@ -88,5 +92,6 @@ Softata
     └───
 ```
 
-[^1]: This is the first footnote
+
+fffgg
 
