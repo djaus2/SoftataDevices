@@ -60,6 +60,10 @@ The required includes are as per the ```interrogate``` sketch:
 
 You may wish to add ```grove.h```
 
+## Notes:
+
+There are added features in this Softaata API compared to that in Softa-ata.
+
 
 ## Soft-ata/Softata Sketch Code
 ```
