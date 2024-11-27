@@ -14,7 +14,7 @@ SoftatDevice -  | - Sensors
 - Each of the 3 device types on the right inherit common properties from the SoftatDevice class.
 - Each of the classes on the right have specific properties as well
   - Some of the device class propeties as universal from all devices of that type
-    - In no relevant for a spoecific device in a device type then the method is a dummy and returns without error.
+    - If no relevant for a spoecific device in a device type then the method is a dummy and returns without error.
   - Some device class properties are specific to the device
     - In particular, the Display clases have a Misc set of methods that are specific to each display type.
 
@@ -64,7 +64,7 @@ You may wish to add ```grove.h```
 
 ## Notes:
 
-There are added features in this Softaata API compared to that in Softa-ata.
+There are added features in this Softaata API compared to that in Softa-ata. These changes are meant to keep knowledge of devices in the sketch code such that the remote code cam interrogate the device to determine what it can orchestrate minimising the knowledge of Softata that the remote application needs to have.
 
 
 ## Soft-ata/Softata Sketch Code
