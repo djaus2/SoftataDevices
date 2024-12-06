@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "grove_actuator.h"
+#include "SoftataDevice_actuator.h"
 
 Sipo74hc95::Sipo74hc95()
 {
@@ -28,7 +28,7 @@ bool Sipo74hc95::Setup(byte * settings, byte numSettings)
 
 /*String  Sipo74hc95::GetPins()
 {
-    String msg = "OK:SIPO_74HC595 Pins:";
+    String msg = "SIPO_74HC595 Pins:";
     msg.concat(SIPO_74HC595_PINOUT);
     return msg;
 }*/

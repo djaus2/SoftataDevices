@@ -3,39 +3,44 @@
 ****************************************************************
 *
 * Interrogate the API without connection to peripheral devices. 
-* That can instantiate a class without calling Setup().
+* Can instantiate a class without calling Setup().
 *
 ****************************************************************/
-#include <grove_sensor.h>
-#include <grove_environsensors.h>
-#include <grove_displays.h>
-#include <grove_actuator.h>
+#include <softatadevice.h>
+#include <softataDevice_sensor.h>
+#include <SoftataDevice_environsensors.h>
+#include <SoftataDevice_display.h>
+#include <SoftataDevice_actuator.h>
 
 byte relaySetup[] = {18};
 
 void setup() {
   Serial.begin();
   while(!Serial);
-  Serial.println(Grove::GetListofDevices());
+  Serial.println(SoftataDevice::GetListofDevices());                  // Get from general device class
   Serial.println();
+  
+  Serial.println(SoftataDevice_Sensor::GetListofDevices());           //Get from device type class 
+  Serial.println(SoftataDevice_Sensor::GetListofCmds());              //Get from device type class, cmds common to the device type
+  Serial.println("====================");
+  Serial.println(SoftataDevice_Sensor::GGetListofProperties(BME280)); // Get from device type class using device ordinal
+  Serial.println(SoftataDevice_Sensor::GetListofProperties(BME280));  // Get from device type class using device ordinal
+  Serial.println(SoftataDevice_Sensor::GetName(BME280));              // Get from device type class using device ordinal
+  Serial.println(SoftataDevice_Sensor::GetPinout(BME280));            // Get from device type class using device ordinal
+  Serial.println("====================");
+  Serial.println(SoftataDevice_BME280::GetListofProperties());        // Get from specific device class
+  SoftataDevice_BME280 * sensor = new SoftataDevice_BME280();         // Instantiate specofic device
+  Serial.println(sensor->GetPins());                                  // Get from device instance
 
-  Serial.println(Grove_Sensor::GetListof());
-  Serial.println(Grove_Sensor::GetListofCmds());
-  Serial.println("====================");
-  Serial.println(Grove_Sensor::GetName(BME280)); // Can get name for device without an instance
-  Serial.println("====================");
-  Serial.println(Grove_Sensor::GetPinout(BME280)); // Can get pinout for device without an instance
-  Grove_BME280 * sensor = new Grove_BME280();
-  Serial.println(sensor->GetPins());
 
   Serial.println("All Sensor Pinouts");
   for (int s = 0; s< SENSOR_NONE; s++)
   {
     Serial.print(s);
     Serial.print(". ");
-    Serial.print(sensor_name[s]);
+    Serial.print(sensor_name[s]);               // Macro generated array of strings indexed by device type -> device ordibnal
     Serial.print(": ");
-    Serial.println(SENSOR_PINOUTS[s]);
+    Serial.println(SENSOR_PINOUTS[s]);          // Macro generated array os strings indexed by device type -> device ordibnal
   }
 
   //sensor->Setup();
@@ -44,14 +49,14 @@ void setup() {
 
   Serial.println();
 
-  Serial.println(Grove_Display::GetListof());
-  Serial.println(Grove_Display::GetListofCmds());
+  Serial.println(SoftataDevice_Display::GetListofDevices()); // Get from device type class
+  Serial.println(SoftataDevice_Display::GetListofCmds());    // Get from device type class, cmds common to the device type
   Serial.println("====================");
-  Serial.println(Grove_Display::GetName(NEOPIXEL)); // Can get name for device without an instance
+  Serial.println(SoftataDevice_Display::GetName(NEOPIXEL));  // Get from device type class using device ordinal
   Serial.println("====================");
-  Adafruit_NeoPixel8 * display = new Adafruit_NeoPixel8();
-  Serial.println(Adafruit_NeoPixel8::GetPins());
-  Serial.println(display->GetListofMiscCmds());
+  Adafruit_NeoPixel8 * display = new Adafruit_NeoPixel8();   // Instantiate specofic device
+  Serial.println(Adafruit_NeoPixel8::GetPins());             // Get from specific device class 
+  Serial.println(display->GetListofMiscCmds());              // Get from device instance
   
   Serial.println("All Display Pinouts");
 
@@ -59,9 +64,9 @@ void setup() {
   {
     Serial.print(d);
     Serial.print(". ");
-    Serial.print(display_name[d]);
+    Serial.print(display_name[d]);                           // Macro generated array of strings indexed by device type -> device ordibnal
     Serial.print(": ");
-    Serial.println(DISPLAY_PINOUTS[d]);
+    Serial.println(DISPLAY_PINOUTS[d]);                      // Macro generated array of strings indexed by device type -> device ordibnal
   }
 
 
@@ -69,21 +74,21 @@ void setup() {
   Serial.println();
   
   // Get from class type
-  Serial.println(Grove_Actuator::GetListof());
-  Serial.println(Grove_Actuator::GetListofCmds());
+  Serial.println(SoftataDevice_Actuator::GetListofDevices()); //Get from device type class
+  Serial.println(SoftataDevice_Actuator::GetListofCmds());    //Get from device type class, cmds common to the device type
   Serial.println("====================");
-  Serial.println(Grove_Actuator::GetName(RELAY)); // Can get name for device without an instance
+  Serial.println(SoftataDevice_Actuator::GetName(RELAY));     // Get from device type class using device ordinal
   Serial.println("====================");
   // Get from specfic class
-  Serial.println(Grove_Relay::GetPins()); 
-  Grove_Relay * relay  = new  Grove_Relay();
+  Serial.println(SoftataDevice_Relay::GetPins());             // Get from specific device class
+  SoftataDevice_Relay * relay  = new  SoftataDevice_Relay();  // Instantiate specofic device
   // Can also get these again from the instance
-  Serial.println(relay->GetListofCmds());
-  Serial.println(relay->GetPins());
+  Serial.println(relay->GetListofCmds());                     // Get from device instance
+  Serial.println(relay->GetPins());                           // Get from device instance
   // And from index
-  Serial.print("Relay (enum) ord: ");
-  Serial.println(RELAY);
-  Serial.println(ACTUATOR_PINOUTS[RELAY]);
+  Serial.print("Relay (enum) ord: ");                         // Show device ordinal from enum device type list
+  Serial.println(RELAY);                                      // ''
+  Serial.println(ACTUATOR_PINOUTS[RELAY]);                    // Macro generated array of strings indexed by device type -> device ordibnal
 
 
   Serial.println("All Actuator Pinouts");
@@ -91,13 +96,14 @@ void setup() {
   {
     Serial.print(a);
     Serial.print(". ");
-    Serial.print(actuator_name[a]);
+    Serial.print(actuator_name[a]);               // Macro generated array of strings indexed by device type -> device ordibnal
     Serial.print(": ");
-    Serial.println(ACTUATOR_PINOUTS[a]);
+    Serial.println(ACTUATOR_PINOUTS[a]);          // Macro generated array of strings indexed by device type -> device ordibnal
   }
 
   
   //relay->Setup->(relaySetup,1);
+  
 
 }
 
@@ -115,7 +121,7 @@ OK:BME280 Sensor Pins:I2C0 (Pins8/9 (SDA/SCL) fixed): Address 0x77 (Alt 0x76). E
 
 Displays:OLED096,LCD1602,NEOPIXEL,BARGRAPH,GBARGRAPH
 Display Cmds:getCmds,getDisplays,getpins,setupDefault,setup,dispose,miscGetList,clear,backlight,setCursor,writestring,cursor_writestring,home,dummy,misc
-OK:Neopixel Display Pins:OneWire: Pin 16 (default) Alt 18 or 20 (Grove yellow cable).. 17,19,21 (Grove white cable)
+OK:Neopixel Display Pins:OneWire: Pin 16 (default) Alt 18 or 20 (Softatadevice yellow cable).. 17,19,21 (Softatadevice white cable)
 Neopixel Display Misc  Cmds:setpixelcolor,setpixelcolorAll,setpixelcolorOdds,setpixelcolorEvens,setBrightness,setN,NEOPIXELMiscCmds_MAX
 
 ACTUATORS:SERVO,SIPO_74HC595,RELAY

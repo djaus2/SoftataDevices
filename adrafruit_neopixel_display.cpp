@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
-#include "grove_displays.h"
+#include "SoftataDevice_display.h"
 
 
 // When setting up the NeoPixel library, we tell it how many pixels,

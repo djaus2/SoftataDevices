@@ -1,22 +1,22 @@
 #include <Arduino.h>
-#include "grove_actuator.h"
+#include "SoftataDevice_actuator.h"
 
-Grove_Servo::Grove_Servo()
+SoftataDevice_Servo::SoftataDevice_Servo()
 {
     Setup();
 }
 
-Grove_Servo::Grove_Servo(int pin)
+SoftataDevice_Servo::SoftataDevice_Servo(int pin)
 {
     SetupServo(pin,MIN_PW,MAX_PW,PERIOD);
 }
 
-bool Grove_Servo::Setup()
+bool SoftataDevice_Servo::Setup()
 {
     return SetupServo(DEFAULT_SERVO_PIN,MIN_PW,MAX_PW,PERIOD);
 }
 
-bool Grove_Servo::Setup(byte * settings, byte numSettings)
+bool SoftataDevice_Servo::Setup(byte * settings, byte numSettings)
 {
     if(numSettings>0)
     {
@@ -46,14 +46,14 @@ bool Grove_Servo::Setup(byte * settings, byte numSettings)
 }
 
 /*
-String Grove_Servo::GetPins()
+String SoftataDevice_Servo::GetPins()
 {
-    String msg = "OK:Servo Pins:";
+    String msg = "Servo Pins:";
     msg.concat(SERVO_PINOUT);
     return msg;
 }*/
 
-bool Grove_Servo::SetupServo(int pin, int min, int max, int period)
+bool SoftataDevice_Servo::SetupServo(int pin, int min, int max, int period)
 {
     myservo.attach(pin,min,max);
     return true;
@@ -61,12 +61,12 @@ bool Grove_Servo::SetupServo(int pin, int min, int max, int period)
 
 
 // Index for if there are an array of actuators here.
-bool Grove_Servo::Write(double value, int index)
+bool SoftataDevice_Servo::Write(double value, int index)
 {
     return true;
 }
 
-bool Grove_Servo::Write(int angle, int index, int numBytes /*=1*/)
+bool SoftataDevice_Servo::Write(int angle, int index, int numBytes /*=1*/)
 {
     if((index<0)||(index>180))
         return false;
@@ -74,22 +74,22 @@ bool Grove_Servo::Write(int angle, int index, int numBytes /*=1*/)
     return true;
 }
 
-bool Grove_Servo::SetBitState(bool state,int bitIndex)
+bool SoftataDevice_Servo::SetBitState(bool state,int bitIndex)
 {
     return true;
 }
 
-bool Grove_Servo::SetBit(int bitNo )
+bool SoftataDevice_Servo::SetBit(int bitNo )
 {
     return true;
 }
 
-bool Grove_Servo::ClearBit(int bitNo)
+bool SoftataDevice_Servo::ClearBit(int bitNo)
 {
     return true;
 }
 
-bool Grove_Servo::ToggleBit(int bitNo)
+bool SoftataDevice_Servo::ToggleBit(int bitNo)
 {
     return true;
 }
