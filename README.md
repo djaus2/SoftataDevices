@@ -77,7 +77,7 @@ The required includes are as per the ```interrogate``` sketch:
 
 ## Refactoring  
 
-*Restatement:** A refactoring of the repository [djaus2/Soft-ata](https://gitshub.com/Softata) such that ```<repo>/code/Softata/src``` directory is separated to here.
+***Restatement:*** A refactoring of the repository [djaus2/Soft-ata](https://gitshub.com/Softata) such that ```<repo>/code/Softata/src``` directory is separated to here.
 
 This refactored version of that folder so that it is a separate Arduino library.
 
