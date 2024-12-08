@@ -72,9 +72,8 @@ The required includes are as per the ```interrogate``` sketch:
 #include <SoftataDevice_display.h>
 #include <SoftataDevice_actuator.h>
 ```
-`
 
-====
+---------------
 
 ## Refactoring  
 
@@ -87,7 +86,7 @@ Previously this folder sat below the root of the Arduino softata sketch folder. 
 Methods that do not return a value (such as with a sensor read), return a tristate enum value which is normally ```_ok```. If there is an error in the method, ```_nok``` is returned. If a method is not implemneted then ```notimplemneted``` is returned which at a higher level is meant to be interpretteed is OK but can be used otherwise. ```_nan_``` is alos a return option for data reads.
 one 
 
-====
+----------------
 
 ## Notes:
 
