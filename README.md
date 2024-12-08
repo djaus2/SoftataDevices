@@ -5,7 +5,7 @@ Updared base Arduino Softata code from [Soft-ata repository](https://github.com/
 > This is the Arduino code for interacting with devices from a Raspbery Pi Pico W. The top level code that orchestrates the remote interaction with these devices is not included here. That remains in the Softa-ata repsository in the Softata sketch there and  is subject to an update for this.
 
 **Refactoring:**
-_Restating_ Thisi is a refeactoring of the repository [djaus2/Soft-ata](https://gitshub.com/Softata) such that ```<repo>/code/Softata/src``` directory is separated to here.
+_From another perspective_ This is a refeactoring of the repository [djaus2/Soft-ata](https://gitshub.com/Softata) such that ```<repo>/code/Softata/src``` directory is separated to here.
 [See Refactoring below](#Refactoring)
 
 Devices are from one of the following classes
@@ -70,9 +70,8 @@ You may wish to add ```softatadevice.h```
 ====
 
 ## Refactoring  
-... _This repository_
 
-A refeactoring of the repository [djaus2/Soft-ata](https://gitshub.com/Softata) such that ```<repo>/code/Softata/src``` directory is separated to here.
+*Restatement:** A refactoring of the repository [djaus2/Soft-ata](https://gitshub.com/Softata) such that ```<repo>/code/Softata/src``` directory is separated to here.
 
 This refactored version of that folder so that it is a separate Arduino library.
 
