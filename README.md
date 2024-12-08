@@ -8,7 +8,7 @@ Updared base Arduino Softata code from the GitHub [djaus2/Soft-ata](https://gith
 _From another perspective_ This is a refactoring of the repository [djaus2/Soft-ata](https://gitshub.com/Softata) such that ```<repo>/code/Softata/src``` directory is separated to here.
 [See Refactoring](#Refactoring) below.
 
-> Note the Grove name as used previousy has been changed to SoftaDevices.
+> Note the Grove name as used previousy has been changed to SoftataDevices.
 
 Devices are from one of the following classes
 
