@@ -14,7 +14,7 @@ Devices are from one of the following classes
 
 ```
                 | - Actuators
-SoftatDevice -  | - Sensors
+SoftataDevice -  | - Sensors
                 | - Displays
 ```
 
