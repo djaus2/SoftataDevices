@@ -19,7 +19,7 @@ SoftatDevice -  | - Sensors
 - Each of the 3 device types on the right inherit common properties from the SoftatDevice class.
 - Each of the classes on the right have specific properties as well
   - Some of the device class propeties as universal from all devices of that type
-    - If no relevant for a spoecific device in a device type then the method is a dummy and returns without error.
+    - If no relevant for a specific device in a device type then the method is a dummy and returns without error.
   - Some device class properties are specific to the device
     - In particular, the Display clases have a Misc set of methods that are specific to each display type.
 
