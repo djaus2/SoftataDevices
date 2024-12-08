@@ -8,6 +8,8 @@ Updared base Arduino Softata code from the GitHub [djaus2/Soft-ata](https://gith
 _From another perspective_ This is a refactoring of the repository [djaus2/Soft-ata](https://gitshub.com/Softata) such that ```<repo>/code/Softata/src``` directory is separated to here.
 [See Refactoring](#Refactoring) below.
 
+> Note the Grove name as used previousy has been changed to SoftaDevices.
+
 Devices are from one of the following classes
 
 ```
@@ -16,9 +18,12 @@ SoftatDevice -  | - Sensors
                 | - Displays
 ```
 
-- Each of the 3 device types on the right inherit common properties from the SoftatDevice class.
+- Each of the 3 device types on the right inherit common properties and methods from the SoftatDevice class.
+  - For example, all devices implement a default Setup().
+  - Also, all antecedant device classes include GetListofDevices() to get a current csv list of implemented devices of thaat device type.
+    - For the top level class SoftataDevice , GetListofDevices() returns a csv list of the device types.
 - Each of the classes on the right have specific properties as well
-  - Some of the device class propeties as universal from all devices of that type
+  - Some of the device class propeties are universal from all devices of that type
     - If no relevant for a specific device in a device type then the method is a dummy and returns without error.
   - Some device class properties are specific to the device
     - In particular, the Display clases have a Misc set of methods that are specific to each display type.
