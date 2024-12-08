@@ -65,14 +65,14 @@ Download the zip file, ``` [Code]-Clone-Download Zip```, green button top right 
 Create a new sketch then Sketch->Include Library->Add zip file and browse to the downloaded zip file.
 The required includes are as per the ```interrogate``` sketch:
 
-```cppsoftatadevice_sensor
-#include <.h>
-#include <softatadevice_environsensors.h>
-#include <softatadevice_displays.h>
-#include <softatadevice_actuator.h>
+```cpp
+#include <softatadevice.h>
+#include <softataDevice_sensor.h>
+#include <SoftataDevice_environsensors.h>
+#include <SoftataDevice_display.h>
+#include <SoftataDevice_actuator.h>
 ```
-
-You may wish to add ```softatadevice.h```
+`
 
 ====
 
