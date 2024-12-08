@@ -57,6 +57,10 @@ The files in this repository are those from the src folder from the Softata Sket
 
 > Nb: Some device type classes such as Serial have been left in the top level code at this stage.
 
+## Target Device
+The top level ccode Softa-ta/Softata targets a RPi Pico W. using the [PhilHower BSP](https://github.com/earlephilhower/arduino-pico). This code should work with other Arduinodevices except the inclusion of the Watchdog timer mechanism.
+Pico 2W wil be tested in the near future.
+
 ## Sample Code
 There is one example sketch thus far in the examples folder, interrogate. This will run on a RPi Pico W configured for Arduino and return information about supported devices without actually needing any to be connected.
 
