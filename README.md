@@ -13,9 +13,9 @@ _From another perspective_ This is a refactoring of the repository [djaus2/Soft-
 Devices are from one of the following classes
 
 ```
-                | - Actuators
+                 | - Actuators
 SoftataDevice -  | - Sensors
-                | - Displays
+                 | - Displays
 ```
 
 - Each of the 3 device types on the right inherit common properties and methods from the SoftatDevice class.
