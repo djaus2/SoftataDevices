@@ -2,7 +2,7 @@
 #include "SoftataDevice_environsensors.h"
 
       
-SoftataDevice_Sensor *  GetNewSensorInstance(byte deviceInstanceType)
+SoftataDevice_Sensor *  _GetNewSensorInstance(byte deviceInstanceType)
 {
     SoftataDevice_Sensor * dev = NULL;
     switch (deviceInstanceType)
@@ -33,9 +33,9 @@ SoftataDevice_Sensor *  GetNewSensorInstance(byte deviceInstanceType)
     return dev;
 }
 
-SoftataDevice_Sensor * SoftataDevice_Sensor::GSetup(byte _sensor)
+SoftataDevice_Sensor * SoftataDevice_Sensor::_Getup(byte _sensor)
 {
-    SoftataDevice_Sensor * dev = GetNewSensorInstance(_sensor);
+    SoftataDevice_Sensor * dev = _GetNewSensorInstance(_sensor);
     if (dev == NULL)
         return NULL;
     if(dev->Setup())
@@ -48,9 +48,9 @@ SoftataDevice_Sensor * SoftataDevice_Sensor::GSetup(byte _sensor)
     }
 }
 
-SoftataDevice_Sensor * SoftataDevice_Sensor::GSetup(byte actuator, byte * settings, byte numSettings)
+SoftataDevice_Sensor * SoftataDevice_Sensor::_Getup(byte actuator, byte * settings, byte numSettings)
 {
-    SoftataDevice_Sensor * dev = GetNewSensorInstance(actuator);
+    SoftataDevice_Sensor * dev = _GetNewSensorInstance(actuator);
     if (dev == NULL)
         return NULL;
     if( dev->Setup(settings,numSettings))
@@ -63,7 +63,7 @@ SoftataDevice_Sensor * SoftataDevice_Sensor::GSetup(byte actuator, byte * settin
     }
 }
 
-      static String GetListofCmds()
+      static String _GetListofCmds()
       {
         String list ="Sensor Cmds:";
         int numCMDS = (int) SENSOR_COMMANDS_NONE;
@@ -82,7 +82,7 @@ SoftataDevice_Sensor * SoftataDevice_Sensor::GSetup(byte actuator, byte * settin
         return list;
       }
 
-      String SoftataDevice_Sensor::GetListofProperties(byte sen)
+      String SoftataDevice_Sensor::_GetListofProperties(byte sen)
       {
         String props ="";
         switch (sen)

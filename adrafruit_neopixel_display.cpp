@@ -12,8 +12,9 @@ Adafruit_NeoPixel * pixels;
 
 
 bool Adafruit_NeoPixel8::Setup() {
+
   pixels = new Adafruit_NeoPixel(numPixels, grovePin, NEO_GRB + NEO_KHZ800);
-  
+  this->DisplayType = NEOPIXEL;
   pixels->begin(); // This initializes the NeoPixel library.
   return true;
 }

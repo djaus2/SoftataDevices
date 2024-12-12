@@ -34,6 +34,7 @@ rgb_lcd lcd;
 
 bool SoftataDevice_LCD1602::Setup()
 {
+  this->DisplayType = LCD1602;
   SoftataDevice::SetI2CPins(0);
   lcd.begin(16, 2);
   lcd.setRGB(COLORRED, COLORGREEN, COLORBLUE);
@@ -42,6 +43,7 @@ bool SoftataDevice_LCD1602::Setup()
 
 bool SoftataDevice_LCD1602::Setup(byte * settings, byte numSettings)
 {
+  this->DisplayType = LCD1602;
   if (numSettings>1)
   {
     int i2c = settings[0];

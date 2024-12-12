@@ -8,12 +8,14 @@
 bool Custom_Bargraph::Setup()
 {
   ic595 = new IC_74HC595_ShiftRegister();
+  this->DisplayType = GBARGRAPH;
   return true;
 }
 
 bool Custom_Bargraph::Setup(byte * settings, byte numSettings)
 {
   ic595 = new IC_74HC595_ShiftRegister(settings,numSettings);
+  this->DisplayType = GBARGRAPH;
   return true;
 }
 

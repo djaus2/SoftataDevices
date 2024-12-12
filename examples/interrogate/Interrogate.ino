@@ -23,7 +23,7 @@ void setup() {
   Serial.println(SoftataDevice_Sensor::GetListofDevices());           //Get from device type class 
   Serial.println(SoftataDevice_Sensor::GetListofCmds());              //Get from device type class, cmds common to the device type
   Serial.println("====================");
-  Serial.println(SoftataDevice_Sensor::GGetListofProperties(BME280)); // Get from device type class using device ordinal
+  Serial.println(SoftataDevice_Sensor::_GetListofProperties(BME280)); // Get from device type class using device ordinal
   Serial.println(SoftataDevice_Sensor::GetListofProperties(BME280));  // Get from device type class using device ordinal
   Serial.println(SoftataDevice_Sensor::GetName(BME280));              // Get from device type class using device ordinal
   Serial.println(SoftataDevice_Sensor::GetPinout(BME280));            // Get from device type class using device ordinal
@@ -53,11 +53,13 @@ void setup() {
   Serial.println(SoftataDevice_Display::GetListofCmds());    // Get from device type class, cmds common to the device type
   Serial.println("====================");
   Serial.println(SoftataDevice_Display::GetName(NEOPIXEL));  // Get from device type class using device ordinal
+  Serial.println(SoftataDevice_Display::_GetListofMiscCmds(NEOPIXEL));  // Get from device type class using device ordinal
   Serial.println("====================");
-  Adafruit_NeoPixel8 * display = new Adafruit_NeoPixel8();   // Instantiate specofic device
-  Serial.println(Adafruit_NeoPixel8::GetPins());             // Get from specific device class 
-  Serial.println(display->GetListofMiscCmds());              // Get from device instance
-  
+  Serial.println(Adafruit_NeoPixel8::GetPins());             // Get from specific device class
+  Adafruit_NeoPixel8 * display = new Adafruit_NeoPixel8();   // Instantiate specific device
+  //SoftataDevice_Display * display = SoftataDevice_Display::_Setup(NEOPIXEL);  // Instantiate specific device via Display class method using device ordinal
+  Serial.println(display->_GetListofMiscCmds(NEOPIXEL));              // Get from device instance
+
   Serial.println("All Display Pinouts");
 
   for (int d = 0; d< DISPLAY_NONE; d++)

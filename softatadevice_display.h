@@ -31,9 +31,9 @@ const char * const display_name[] = { DISPLAYS };
 class SoftataDevice_Display: public SoftataDevice
 {
     public:
-
-      static SoftataDevice_Display * GSetup(byte display);
-      static SoftataDevice_Display * GSetup(byte display, byte * settings, byte numSettings);
+      static SoftataDevice_Display * _Setup(byte display);
+      static SoftataDevice_Display * _Setup(byte display, byte * settings, byte numSettings);
+      static String _GetListofMiscCmds(byte display);
 
       static String GetListofDevices()
       {
@@ -97,7 +97,7 @@ class SoftataDevice_Display: public SoftataDevice
         return SoftataDevice_Display::GetListofDevices();
       }
 
-  
+
       virtual bool Setup();
       virtual bool Setup(byte * settings, byte numSettings);
       static String GetPins();
@@ -114,8 +114,11 @@ class SoftataDevice_Display: public SoftataDevice
       virtual Tristate WriteString(byte x, byte y, String msg);
       virtual Tristate Misc(byte cmd, byte * data, byte length=0);
 
-      DeviceType deviceType = display;
+      
     protected:
+      static SoftataDevice_Display * _GetNewDisplayInstance(byte displayType);
+      DeviceType deviceType = display;
+      GroveDisplay DisplayType = DISPLAY_NONE;
 };
 #endif
 

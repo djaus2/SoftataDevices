@@ -33,6 +33,7 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* clock=*/ SCL, /* data=*/ SD
 
 
 bool SoftataDevice_OLED096::Setup() {
+  this->DisplayType = OLED096;
   SoftataDevice::SetI2CPins(0);
   u8g2.begin();
  
@@ -51,6 +52,7 @@ bool SoftataDevice_OLED096::Setup(byte * settings, byte numSettings)
     int i2c = settings[0];
     if((i2c==0) || (i2c==1))
     {
+      this->DisplayType = OLED096;
       // Note u8g2 code fixes to I2C0!
       SoftataDevice::SetI2CPins(i2c);
       u8g2.begin();

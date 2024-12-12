@@ -30,8 +30,8 @@ class SoftataDevice_Actuator: public SoftataDevice
     public:
 
 
-      static SoftataDevice_Actuator * GSetup(byte actuator);
-      static SoftataDevice_Actuator * GSetup(byte actuator, byte * settings, byte numSettings);
+      static SoftataDevice_Actuator * _Getup(byte actuator);
+      static SoftataDevice_Actuator * _Getup(byte actuator, byte * settings, byte numSettings);
 
       static String GetListofDevices()
       {

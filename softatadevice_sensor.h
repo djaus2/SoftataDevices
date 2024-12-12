@@ -32,11 +32,11 @@ class SoftataDevice_Sensor: public SoftataDevice
 {
     public:
 
-      static SoftataDevice_Sensor * GSetup(byte display);
-      static SoftataDevice_Sensor * GSetup(byte display, byte * settings, byte numSettings);   
-      static String GetListofProperties(byte sen);
+      static SoftataDevice_Sensor * _Getup(byte display);
+      static SoftataDevice_Sensor * _Getup(byte display, byte * settings, byte numSettings);   
+      static String _GetListofProperties(byte sen);
 
-      static String GGetListofProperties(byte sen)
+      static String GetListofProperties(byte sen)
       {
         return String(SENSOR_PROPERTIES[sen]);
       }

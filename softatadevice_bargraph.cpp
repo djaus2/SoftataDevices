@@ -11,6 +11,7 @@ int dio = 16;
 // Default Setup
 bool SoftataDevice_Bargraph::Setup()
 {
+  this->DisplayType = BARGRAPH;
   Serial.println("Bar Default");
   clk = 17;
   dio = 16;
@@ -24,6 +25,7 @@ bool SoftataDevice_Bargraph::Setup()
 
 bool SoftataDevice_Bargraph::Setup(byte * settings, byte numSettings)
 {
+  this->DisplayType = BARGRAPH;
   Serial.println("Bar NonDef");
   if(numSettings<2)
     return false;

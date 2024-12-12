@@ -26,7 +26,7 @@ SoftataDevice_Actuator *  GetNewActuatorInstance(byte deviceInstanceType)
     return dev;
 }
 
-SoftataDevice_Actuator * SoftataDevice_Actuator::GSetup(byte _actuator)
+SoftataDevice_Actuator * SoftataDevice_Actuator::_Getup(byte _actuator)
 {
     SoftataDevice_Actuator * dev = GetNewActuatorInstance(_actuator);
     if (dev == NULL)
@@ -41,7 +41,7 @@ SoftataDevice_Actuator * SoftataDevice_Actuator::GSetup(byte _actuator)
     }
 }
 
-SoftataDevice_Actuator * SoftataDevice_Actuator::GSetup(byte _actuator, byte * settings, byte numSettings)
+SoftataDevice_Actuator * SoftataDevice_Actuator::_Getup(byte _actuator, byte * settings, byte numSettings)
 {
     SoftataDevice_Actuator * dev = GetNewActuatorInstance(_actuator);
     if (dev == NULL)

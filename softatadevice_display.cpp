@@ -2,10 +2,10 @@
 #include "SoftataDevice_display.h"
 
       
-SoftataDevice_Display *  GetNewDisplayInstance(byte deviceInstanceType)
+SoftataDevice_Display *  SoftataDevice_Display::_GetNewDisplayInstance(byte displayType)
 {
     SoftataDevice_Display * dev = NULL;
-    switch (deviceInstanceType)
+    switch (displayType)
     {
         case OLED096:
             dev  = new SoftataDevice_OLED096();
@@ -29,12 +29,67 @@ SoftataDevice_Display *  GetNewDisplayInstance(byte deviceInstanceType)
             dev = NULL; 
             break;  
     }
+    if(dev != nullptr)
+    {
+        dev->DisplayType = (GroveDisplay)displayType;
+    }
     return dev;
 }
 
-SoftataDevice_Display * SoftataDevice_Display::GSetup(byte _display)
+String SoftataDevice_Display::_GetListofMiscCmds(byte displayType)
 {
-    SoftataDevice_Display * dev = GetNewDisplayInstance(_display);
+    const char* const* miscCmds = NULL;
+    int max = 0;
+
+    switch (displayType)
+    {
+        case OLED096:
+            miscCmds  = OLEDMiscCmdsArr;
+            max = OLEDMiscCmds_MAX;
+            break;
+        case LCD1602:
+            miscCmds  = LCD1602MiscCmdsArr;
+            max = LCD1602MiscCmds_MAX;
+            break;
+        case NEOPIXEL:
+            miscCmds  = NEOPIXELMiscCmdsArr;
+            max = NEOPIXELMiscCmds_MAX;
+            break;
+        case BARGRAPH:
+            miscCmds  = BARGRAPHMiscCmdsArr;
+            max = BARGRAPHMiscCmds_MAX;
+        case GBARGRAPH:
+            miscCmds  = CUSTOM_BARGRAPHMiscCmdsArr;
+            max = _BARGRAPHMiscCmds_MAX;
+            break;                       
+        ////////////////////////////
+        // Add more displays here // 
+        ////////////////////////////
+        default:
+            miscCmds = NULL;
+            max = 0;
+            break;  
+    }
+    if ((max > 0) && (miscCmds != NULL))
+    {
+        String list ="DISPLAY MISC CMDS:";
+        for (int n=0;n<max;n++)
+        {
+            list.concat(String(miscCmds[n]));
+            if (n != (max-1))
+            list.concat(',');
+        }
+        return list;
+    }
+    else
+    {
+        return "Error: No display found";
+    }
+}
+
+SoftataDevice_Display * SoftataDevice_Display::_Setup(byte displayType)
+{
+    SoftataDevice_Display * dev = _GetNewDisplayInstance(displayType);
     if (dev == NULL)
         return NULL;
     if(dev->Setup())
@@ -47,9 +102,9 @@ SoftataDevice_Display * SoftataDevice_Display::GSetup(byte _display)
     }
 }
 
-SoftataDevice_Display * SoftataDevice_Display::GSetup(byte _display, byte * settings, byte numSettings)
+SoftataDevice_Display * SoftataDevice_Display::_Setup(byte displayType, byte * settings, byte numSettings)
 {
-    SoftataDevice_Display * dev = GetNewDisplayInstance(_display);
+    SoftataDevice_Display * dev = _GetNewDisplayInstance(displayType);
     if (dev == NULL)
         return NULL;
     if( dev->Setup(settings,numSettings))
