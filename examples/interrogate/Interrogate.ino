@@ -111,24 +111,6 @@ void setup() {
 
 void loop() {
 
-
 }
 
-/*************************
-DEVICES:sensor,actuator,communication,display,serial
 
-SENSORS:DHT11,BME280,UltrasonicRanger,Simulator,DHTXX
-Sensor Cmds:getpins,getProperties,setupdefault,setup,readall,read,getTelemetry,sendTelemetryBT,sendTelemetryToIoTHub,pause_sendTelemetry,continue_sendTelemetry,stop_sendTelemetry,getSensors
-OK:BME280 Sensor Pins:I2C0 (Pins8/9 (SDA/SCL) fixed): Address 0x77 (Alt 0x76). Embedded in driver though.
-
-Displays:OLED096,LCD1602,NEOPIXEL,BARGRAPH,GBARGRAPH
-Display Cmds:getCmds,getDisplays,getpins,setupDefault,setup,dispose,miscGetList,clear,backlight,setCursor,writestring,cursor_writestring,home,dummy,misc
-OK:Neopixel Display Pins:OneWire: Pin 16 (default) Alt 18 or 20 (Softatadevice yellow cable).. 17,19,21 (Softatadevice white cable)
-Neopixel Display Misc  Cmds:setpixelcolor,setpixelcolorAll,setpixelcolorOdds,setpixelcolorEvens,setBrightness,setN,NEOPIXELMiscCmds_MAX
-
-ACTUATORS:SERVO,SIPO_74HC595,RELAY
-Actuator Cmds:getpins,getValueRange,setupDefault,setup,writeDoubleValue,writeByteValue,writeWordValue,SetBitState,SetBit,ClearBit,ToggleBit,getActuators
-OK:Relay PinsPin 16 (default), 18 or 20
-OK:Relay PinsPin 16 (default), 18 or 20
-
-*************************/

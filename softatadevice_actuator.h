@@ -11,13 +11,13 @@ const char * const ACTUATOR_CMDS[] = { ACTUATOR_COMMANDS  };
 #undef C
 
 #define C(x) x,
-enum GroveActuatorCmds { ACTUATOR_COMMANDS ACTUATOR_COMMANDS_NONE };
+enum SoftataActuatorCmds { ACTUATOR_COMMANDS ACTUATOR_COMMANDS_NONE };
 #undef C
 
 
 
 #define C(x) x,
-enum GroveActuator { ACTUATORS ACTUATOR_NONE};
+enum SoftataActuator { ACTUATORS ACTUATOR_NONE};
 #undef C
 #define C(x) #x,    
 const char * const actuator_name[] = { ACTUATORS  };
@@ -30,8 +30,8 @@ class SoftataDevice_Actuator: public SoftataDevice
     public:
 
 
-      static SoftataDevice_Actuator * _Getup(byte actuator);
-      static SoftataDevice_Actuator * _Getup(byte actuator, byte * settings, byte numSettings);
+      static SoftataDevice_Actuator * _Setup(byte actuator);
+      static SoftataDevice_Actuator * _Setup(byte actuator, byte * settings, byte numSettings);
 
       static String GetListofDevices()
       {
@@ -77,7 +77,7 @@ class SoftataDevice_Actuator: public SoftataDevice
         int numActuators = (int) ACTUATOR_NONE;
         for (int n=0;n<numActuators;n++)
         {
-          GroveActuator s = (GroveActuator)n;
+          SoftataActuator s = (SoftataActuator)n;
           String name = String(actuator_name[s]);
           if (actuatorName.compareTo(name)==0)
           {

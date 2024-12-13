@@ -15,13 +15,13 @@ const char * const SENSOR_CMDS[] = { SENSOR_COMMANDS  };
 #undef C
 
 #define C(x) x,
-enum GroveSensorCmds { SENSOR_COMMANDS SENSOR_COMMANDS_NONE };
+enum SoftataSensorCmds { SENSOR_COMMANDS SENSOR_COMMANDS_NONE };
 #undef C
 
 
 
 #define C(x) x,
-enum GroveSensor { SENSORS SENSOR_NONE};
+enum SoftataSensor { SENSORS SENSOR_NONE};
 #undef C
 
 #define C(x) #x,    
@@ -32,8 +32,8 @@ class SoftataDevice_Sensor: public SoftataDevice
 {
     public:
 
-      static SoftataDevice_Sensor * _Getup(byte display);
-      static SoftataDevice_Sensor * _Getup(byte display, byte * settings, byte numSettings);   
+      static SoftataDevice_Sensor * _Setup(byte display);
+      static SoftataDevice_Sensor * _Setup(byte display, byte * settings, byte numSettings);   
       static String _GetListofProperties(byte sen);
 
       static String GetListofProperties(byte sen)
@@ -89,7 +89,7 @@ class SoftataDevice_Sensor: public SoftataDevice
         int numSensors = (int) SENSOR_NONE;
         for (int n=0;n<numSensors;n++)
         {
-          GroveSensor s = (GroveSensor)n;
+          SoftataSensor s = (SoftataSensor)n;
           String name = String(sensor_name[s]);
           if (sensorName.compareTo(name)==0)
           {
@@ -113,7 +113,7 @@ class SoftataDevice_Sensor: public SoftataDevice
       virtual double Read(int property);
       virtual CallbackInfo * GetCallbackInfo();
       DeviceType deviceType = sensor;
-      GroveSensor sensorType = SENSOR_NONE;
+      SoftataSensor sensorType = SENSOR_NONE;
       int num_properties;
     protected:
       

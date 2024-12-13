@@ -13,13 +13,13 @@ const char * const CMDS[] = { DISPLAY_COMMANDS  };
 #undef C
 
 #define C(x) x,
-enum GroveDisplayCmds { DISPLAY_COMMANDS DISPLAY_COMMANDS_NONE };
+enum SoftataDisplayCmds { DISPLAY_COMMANDS DISPLAY_COMMANDS_NONE };
 #undef C
 
 ////////////////////////////////////////////////////////
 
 #define C(x) x,
-enum GroveDisplay { DISPLAYS DISPLAY_NONE};
+enum SoftataDisplay { DISPLAYS DISPLAY_NONE};
 #undef C
 
 #define C(x) #x,    
@@ -82,7 +82,7 @@ class SoftataDevice_Display: public SoftataDevice
         int numDisplays = (int) DISPLAY_NONE;
         for (int n=0;n<numDisplays;n++)
         {
-          GroveDisplay s = (GroveDisplay)n;
+          SoftataDisplay s = (SoftataDisplay)n;
           String name = String(display_name[s]);
           if (displayName.compareTo(name)==0)
           {
@@ -118,7 +118,7 @@ class SoftataDevice_Display: public SoftataDevice
     protected:
       static SoftataDevice_Display * _GetNewDisplayInstance(byte displayType);
       DeviceType deviceType = display;
-      GroveDisplay DisplayType = DISPLAY_NONE;
+      SoftataDisplay DisplayType = DISPLAY_NONE;
 };
 #endif
 

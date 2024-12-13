@@ -31,7 +31,7 @@ SoftataDevice_Display *  SoftataDevice_Display::_GetNewDisplayInstance(byte disp
     }
     if(dev != nullptr)
     {
-        dev->DisplayType = (GroveDisplay)displayType;
+        dev->DisplayType = (SoftataDisplay)displayType;
     }
     return dev;
 }

@@ -61,9 +61,9 @@ static int bitStuffing[] = {256,16,16,16,16,256,16};
 #define DIGITAL_CMDS 0xD0
 #define SERIAL_CMDS 0xE0
 
-#define SoftataDevice_SENSOR_CMD  0xF0
-#define SoftataDevice_DISPLAY_CMD 0xF1
-#define SoftataDevice_ACTUATOR_CMD 0xf2
+#define SOFTATADEVICE_SENSOR_CMD  0xF0
+#define SOFTATADEVICE_DISPLAY_CMD 0xF1
+#define SOFTATADEVICE_ACTUATOR_CMD 0xf2
 ///////////////////////// A C T U A T O R S /////////////////////////////////////////////////
 
 
@@ -100,7 +100,7 @@ const char * const ACTUATOR_RANGES[] = { ACTUATOR_RANGEC  };
 ///////////////////////// S E N S O R S /////////////////////////////////////////////////
 
 /*
-enum GroveSensorCmds{s_getpinsCMD, s_getPropertiesCMD, s_setupdefaultCMD, s_setupCMD, s_readallCMD, s_readCMD,
+enum SoftataSensorCmds{s_getpinsCMD, s_getPropertiesCMD, s_setupdefaultCMD, s_setupCMD, s_readallCMD, s_readCMD,
                      s_getTelemetry,s_sendTelemetryBT, s_sendTelemetryToIoTHub, s_pause_sendTelemetry, s_continue_sendTelemetry,
                      s_stop_sendTelemetry, s_getSensorsCMD=255 };
 */
@@ -165,9 +165,9 @@ const char * const SENSOR_PROPERTIES[] = { SENSOR_PROPERTIESC  };
 
 
 
-/*enum GroveDisplayCmds{C(d_getDisplaysCMD),C(d_getDisplaysCMD)d_getpinsCMD,d_tbdCMD, d_setupDefaultCMD, d_setupCMD, d_clearCMD,d_backlightCMD,d_setCursorCMD,
+/*enum SoftataDisplayCmds{C(d_getDisplaysCMD),C(d_getDisplaysCMD)d_getpinsCMD,d_tbdCMD, d_setupDefaultCMD, d_setupCMD, d_clearCMD,d_backlightCMD,d_setCursorCMD,
                                     d_writestrngCMD,d_cursor_writestringCMD, d_home, d_dummyCMD, d_miscCMD,  d_dispose, d_getDisplaysCMD=255 };
-//enum GroveDisplayCmds{d_getpinsCMD=0, d_tbdCMD=1, d_setupDefaultCMD=2, d_setupCMD=3, d_clearCMD=4,d_backlightCMD=5,d_setCursorCMD=6, d_writestrngCMD=7,d_cursor_writestringCMD=8,d_miscCMD=9, d_getDisplaysCMD}
+//enum SoftataDisplayCmds{d_getpinsCMD=0, d_tbdCMD=1, d_setupDefaultCMD=2, d_setupCMD=3, d_clearCMD=4,d_backlightCMD=5,d_setCursorCMD=6, d_writestrngCMD=7,d_cursor_writestringCMD=8,d_miscCMD=9, d_getDisplaysCMD}
 */
 // Note: Adresses are typically defined in the device library which typically use I2C0
 #define OLEDDISPLAY_ADDR   0x78

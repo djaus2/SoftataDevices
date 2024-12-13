@@ -33,7 +33,7 @@ SoftataDevice_Sensor *  _GetNewSensorInstance(byte deviceInstanceType)
     return dev;
 }
 
-SoftataDevice_Sensor * SoftataDevice_Sensor::_Getup(byte _sensor)
+SoftataDevice_Sensor * SoftataDevice_Sensor::_Setup(byte _sensor)
 {
     SoftataDevice_Sensor * dev = _GetNewSensorInstance(_sensor);
     if (dev == NULL)
@@ -48,7 +48,7 @@ SoftataDevice_Sensor * SoftataDevice_Sensor::_Getup(byte _sensor)
     }
 }
 
-SoftataDevice_Sensor * SoftataDevice_Sensor::_Getup(byte actuator, byte * settings, byte numSettings)
+SoftataDevice_Sensor * SoftataDevice_Sensor::_Setup(byte actuator, byte * settings, byte numSettings)
 {
     SoftataDevice_Sensor * dev = _GetNewSensorInstance(actuator);
     if (dev == NULL)
