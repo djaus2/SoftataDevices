@@ -126,14 +126,14 @@ Tristate SoftataDevice_Bargraph::Misc(byte cmd, byte * data, byte length)
   BARGRAPHMiscCmds Cmd = (BARGRAPHMiscCmds)(cmd);
   switch(Cmd)
   {
-    case flow:
+    case flowodd:
       //Just set every odd segment for now.
       Serial.println("XX flow()");
        // pBar->setBits(0b000000000000101);
       pBar->setBits(0b000000101010101);
       Serial.println("flow()");
       break;
-    case flow2:
+    case floweven:
       //Just set even  segment for now.
       Serial.println("XX flow2()");
       pBar->setBits(0b000001010101010);
@@ -143,17 +143,17 @@ Tristate SoftataDevice_Bargraph::Misc(byte cmd, byte * data, byte length)
       // Switch on all LEDs
       pBar->setBits(0x3ff);
       break;
-    case setLed:
-    case clrLed:
-    case toggleLed:
+    case set_Led:
+    case clr_Led:
+    case toggle_Led:
       {
         // Set or toggle a specific LED
         if (length < 1)
           return (Tristate)false;
         int bargraphSegment = data[0];
-        if (Cmd == setLed)
+        if (Cmd == set_Led)
           pBar->setLed(bargraphSegment,1);
-        else if (Cmd == clrLed)
+        else if (Cmd == clr_Led)
           pBar->setLed(bargraphSegment,0);
         else
         {

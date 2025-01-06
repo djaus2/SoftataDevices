@@ -59,8 +59,8 @@ String SoftataDevice_Display::_GetListofMiscCmds(byte displayType)
             miscCmds  = BARGRAPHMiscCmdsArr;
             max = BARGRAPHMiscCmds_MAX;
         case GBARGRAPH:
-            miscCmds  = CUSTOM_BARGRAPHMiscCmdsArr;
-            max = _BARGRAPHMiscCmds_MAX;
+            miscCmds  = BARGRAPHMiscCmdsArr;
+            max = BARGRAPHMiscCmds_MAX;
             break;                       
         ////////////////////////////
         // Add more displays here // 
@@ -75,9 +75,10 @@ String SoftataDevice_Display::_GetListofMiscCmds(byte displayType)
         String list ="DISPLAY MISC CMDS:";
         for (int n=0;n<max;n++)
         {
+            Serial.println(miscCmds[n]);
             list.concat(String(miscCmds[n]));
             if (n != (max-1))
-            list.concat(',');
+                list.concat(',');
         }
         return list;
     }

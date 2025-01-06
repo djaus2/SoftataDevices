@@ -23,7 +23,7 @@ class SoftataDevice_DHTXX: public SoftataDevice_Sensor
       virtual bool Setup(byte * settings, byte numSettings=1);
       virtual String GetPins();
 
-      virtual bool ReadAll(double * values);
+      virtual Tristate ReadAll(double * values);
       virtual String GetTelemetry();
       virtual double Read(int property);
       virtual CallbackInfo * GetCallbackInfo();
@@ -59,7 +59,7 @@ class SoftataDevice_DHT11: public SoftataDevice_Sensor
       virtual bool Setup(byte * settings, byte numSettings=1);
       virtual String GetPins();
 
-      virtual bool ReadAll(double * values);
+      virtual Tristate ReadAll(double * values);
       virtual String GetTelemetry();
       virtual double Read(int property);
       virtual CallbackInfo * GetCallbackInfo();
@@ -89,7 +89,7 @@ class SoftataDevice_BME280: public SoftataDevice_Sensor
       virtual bool Setup(byte * settings, byte numSettings=1);
       virtual String GetPins();
 
-      virtual bool ReadAll(double * values);
+      virtual Tristate ReadAll(double * values);
       virtual String GetTelemetry();
       virtual double Read(int property);
       virtual CallbackInfo * GetCallbackInfo();
@@ -120,7 +120,7 @@ public:
     virtual bool Setup(byte* settings, byte numSettings = 1);
     virtual String GetPins();
 
-    virtual bool ReadAll(double* values);
+    virtual Tristate ReadAll(double* values);
     virtual String GetTelemetry();
     virtual double Read(int property);
     virtual CallbackInfo * GetCallbackInfo();    
@@ -147,7 +147,7 @@ public:
     virtual bool Setup(byte* settings, byte numSettings = 1);
     virtual String GetPins();
     
-    virtual bool ReadAll(double* values);
+    virtual Tristate ReadAll(double* values);
     virtual String GetTelemetry();
     virtual double Read(int property);
     virtual CallbackInfo * GetCallbackInfo();    

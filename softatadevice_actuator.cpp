@@ -16,6 +16,9 @@ SoftataDevice_Actuator *  GetNewActuatorInstance(byte deviceInstanceType)
         case RELAY:
             dev  = new SoftataDevice_Relay();
             break;
+        case QUADRELAYS:
+            dev  = new SoftataDevice_QuadRelays();
+            break;
         /////////////////////////////
         // Add more actuators here // 
         /////////////////////////////
@@ -25,6 +28,8 @@ SoftataDevice_Actuator *  GetNewActuatorInstance(byte deviceInstanceType)
     }
     return dev;
 }
+
+
 
 SoftataDevice_Actuator * SoftataDevice_Actuator::_Setup(byte _actuator)
 {

@@ -105,25 +105,25 @@ Tristate Custom_Bargraph::Misc(byte cmd, byte * data, byte length)
   BARGRAPHMiscCmds Cmd = (BARGRAPHMiscCmds)cmd;
   switch(Cmd)
   {
-    case flow:
+    case flowodd:
       //Just set every odd segment for now.
       ic595->Write((byte)85);
       Serial.println("flow()");
       break;
-    case flow2:
+    case floweven:
       //Just set even  segment for now.
       ic595->Write((byte)170);
       Serial.println("flow2()");
       break;
-    case setLed:
-    case clrLed:
-    case toggleLed:
+    case set_Led:
+    case clr_Led:
+    case toggle_Led:
       // Set or toggle a specific LED
       if (length < 1)
         return (Tristate)false;
-      if (Cmd == setLed)
+      if (Cmd == set_Led)
         ic595->SetBit(data[0]);
-      else if (Cmd == clrLed)
+      else if (Cmd == clr_Led)
         ic595->ClearBit(data[0]);
       else
         ic595->ToggleBit(data[0]);

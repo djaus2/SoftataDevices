@@ -39,10 +39,21 @@ bool SoftataDevice_Relay::Setup(byte * settings, byte numSettings)
     return true;
 }
 
+int SoftataDevice_Relay::GetNumBits()
+{
+    Serial.println("SoftataDevice_Relay::GetNumBits()");
+    return num_bits;
+}
+
+int SoftataDevice_Relay::GetInstanceValueRange()
+{
+    return RELAY_MAX;
+}
+
 /*String SoftataDevice_Relay::GetPins()
 {
     String msg = "Relay Pins";
-    msg.concat(RELAYPINOUT);
+    msg.concat(RELAY_PINOUT);
     return msg;
 }*/
 
@@ -50,42 +61,42 @@ bool SoftataDevice_Relay::Setup(byte * settings, byte numSettings)
 // Instance of is collected elsewhere.
 // No longer need. 2Do Remove
 
-bool SoftataDevice_Relay::Write(double value, int index)
+Tristate SoftataDevice_Relay::Write(double value, int index)
 {
-    return true;
+    return notImplemented;
 }
 
-bool SoftataDevice_Relay::Write(int value, int index, int numBytes )
+Tristate SoftataDevice_Relay::Write(int value, int index, int numBytes )
 {
-    return true;
+    return notImplemented;
 }
 
 
-bool SoftataDevice_Relay::SetBitState(bool state,int bitNo)
+Tristate SoftataDevice_Relay::SetBitState(bool state,int bitNo)
 {
     Serial.println("Setting relay state");
     digitalWrite(relayPin, state);
-    return true;
+    return (Tristate)true;
 }
 
-bool SoftataDevice_Relay::SetBit(int bitNo )
+Tristate SoftataDevice_Relay::SetBit(int bitNo )
 {
     Serial.println("Setting relay");
     digitalWrite(relayPin, true);
-    return true;
+    return (Tristate)true;
 }
 
-bool SoftataDevice_Relay::ClearBit(int bitNo)
+Tristate SoftataDevice_Relay::ClearBit(int bitNo)
 {
     Serial.println("Clearing relay");
     digitalWrite(relayPin, false);
-    return true;
+    return (Tristate)true;
 }
 
-bool SoftataDevice_Relay::ToggleBit(int bitNo)
+Tristate SoftataDevice_Relay::ToggleBit(int bitNo)
 {
     Serial.println("Toggling relay");
     bool state = digitalRead(relayPin);
     digitalWrite(relayPin, !state);
-    return true;
+    return (Tristate)true;
 }

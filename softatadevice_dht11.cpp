@@ -100,7 +100,7 @@ int Pins[] = {PINS};
 
 
 
-    bool SoftataDevice_DHT11::ReadAll(double * values)
+    Tristate SoftataDevice_DHT11::ReadAll(double * values)
     {
       dht DHT;
       // READ DATA
@@ -133,11 +133,11 @@ int Pins[] = {PINS};
           break;
       }
       if(!OK)
-        return false;
+        return (Tristate)false;
       // DISPLAY DATA
       values[0] = DHT.temperature;
       values[1] = DHT.humidity;
-      return true;
+      return (Tristate)true;
     }
 
     String SoftataDevice_DHT11::GetTelemetry()

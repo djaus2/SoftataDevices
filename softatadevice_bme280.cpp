@@ -106,7 +106,7 @@ String SoftataDevice_BME280::GetPins()
 }
 
 
-bool SoftataDevice_BME280::ReadAll(double * values)
+Tristate SoftataDevice_BME280::ReadAll(double * values)
 {
   float temp(NAN), hum(NAN), press(NAN);
 
@@ -118,7 +118,7 @@ bool SoftataDevice_BME280::ReadAll(double * values)
     values[0] = Round2Places(temp);
     values[1] = Round2Places(press);   
     values[2] = Round2Places(hum);
-    return true;
+    return  (Tristate)true;
 }
 
 

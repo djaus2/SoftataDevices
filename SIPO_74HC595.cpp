@@ -26,6 +26,16 @@ bool Sipo74hc95::Setup(byte * settings, byte numSettings)
   return true;
 }
 
+int Sipo74hc95::GetNumBits()
+{
+    return num_bits;
+}
+
+int Sipo74hc95::GetInstanceValueRange()
+{
+    return SIPO_74HC595_MAX;
+}
+
 /*String  Sipo74hc95::GetPins()
 {
     String msg = "SIPO_74HC595 Pins:";
@@ -37,37 +47,38 @@ bool Sipo74hc95::Setup(byte * settings, byte numSettings)
 // Instance of is collected elsewhere.
 // No longer need. 2Do Remove
 
-bool Sipo74hc95::Write(double value, int index)
+Tristate Sipo74hc95::Write(double value, int index)
 {
-    return true;
+    return notImplemented;
 }
-bool Sipo74hc95::Write(int value, int index, int numBytes )
+
+Tristate Sipo74hc95::Write(int value, int index, int numBytes )
 {
     ic595->Write(value,numBytes);
-    return true;
+    return (Tristate)true;
 }
 
 
-bool Sipo74hc95::SetBitState(bool state,int bitNo)
+Tristate Sipo74hc95::SetBitState(bool state,int bitNo)
 {
     ic595->SetBitState(state,bitNo);
-    return true;
+    return (Tristate)true;
 }
 
-bool Sipo74hc95::SetBit(int bitNo )
+Tristate Sipo74hc95::SetBit(int bitNo )
 {
     ic595->SetBit(bitNo);
-    return true;
+    return (Tristate)true;
 }
 
-bool Sipo74hc95::ClearBit(int bitNo)
+Tristate Sipo74hc95::ClearBit(int bitNo)
 {
     ic595->ClearBit(bitNo);
-    return true;
+    return (Tristate)true;
 }
 
-bool Sipo74hc95::ToggleBit(int bitNo)
+Tristate Sipo74hc95::ToggleBit(int bitNo)
 {
     ic595->ToggleBit(bitNo);
-    return true;
+    return (Tristate)true;
 }

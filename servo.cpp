@@ -45,6 +45,17 @@ bool SoftataDevice_Servo::Setup(byte * settings, byte numSettings)
         return SetupServo(DEFAULT_SERVO_PIN,MIN_PW,MAX_PW,PERIOD);
 }
 
+int SoftataDevice_Servo::GetNumBits()
+{
+    Serial.println("SoftataDevice_Servo::GetNumBits()");
+    return num_bits;
+}
+
+int SoftataDevice_Servo::GetInstanceValueRange()
+{
+    return SERVO_MAX;
+}
+
 /*
 String SoftataDevice_Servo::GetPins()
 {
@@ -61,35 +72,35 @@ bool SoftataDevice_Servo::SetupServo(int pin, int min, int max, int period)
 
 
 // Index for if there are an array of actuators here.
-bool SoftataDevice_Servo::Write(double value, int index)
+Tristate SoftataDevice_Servo::Write(double value, int index)
 {
-    return true;
+    return notImplemented;
 }
 
-bool SoftataDevice_Servo::Write(int angle, int index, int numBytes /*=1*/)
+Tristate SoftataDevice_Servo::Write(int angle, int index, int numBytes /*=1*/)
 {
-    if((index<0)||(index>180))
-        return false;
+    if((angle<SERVO_MIN)||(angle>SERVO_MAX))
+        return invalidParams;
     myservo.write(angle);
-    return true;
+    return (Tristate)true;
 }
 
-bool SoftataDevice_Servo::SetBitState(bool state,int bitIndex)
+Tristate SoftataDevice_Servo::SetBitState(bool state,int bitIndex)
 {
-    return true;
+    return notImplemented;
 }
 
-bool SoftataDevice_Servo::SetBit(int bitNo )
+Tristate SoftataDevice_Servo::SetBit(int bitNo )
 {
-    return true;
+    return notImplemented;
 }
 
-bool SoftataDevice_Servo::ClearBit(int bitNo)
+Tristate SoftataDevice_Servo::ClearBit(int bitNo)
 {
-    return true;
+    return notImplemented;
 }
 
-bool SoftataDevice_Servo::ToggleBit(int bitNo)
+Tristate SoftataDevice_Servo::ToggleBit(int bitNo)
 {
-    return true;
+    return notImplemented;
 }

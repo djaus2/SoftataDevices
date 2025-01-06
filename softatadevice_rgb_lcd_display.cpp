@@ -131,10 +131,8 @@ Tristate SoftataDevice_LCD1602::Misc(byte cmd, byte * data, byte length)
   LCD1602MiscCmds Cmd = (LCD1602MiscCmds)cmd;
   switch (cmd)
   {
-  case home:
-      lcd.home(); // Could remove this from here now
-      break;
-  case autoscroll:
+
+  case autoscrollon:
       Serial.print("Autoscroll:");
       Serial.println(cmd);
       lcd.autoscroll();
@@ -144,7 +142,7 @@ Tristate SoftataDevice_LCD1602::Misc(byte cmd, byte * data, byte length)
       Serial.println(cmd);
       lcd.noAutoscroll();
       break;
-  case blink:
+  case blinkon:
       Serial.print("blink:");
       Serial.println(cmd);
       lcd.blink();

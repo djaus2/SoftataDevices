@@ -35,6 +35,7 @@ class SoftataDevice_Sensor: public SoftataDevice
       static SoftataDevice_Sensor * _Setup(byte display);
       static SoftataDevice_Sensor * _Setup(byte display, byte * settings, byte numSettings);   
       static String _GetListofProperties(byte sen);
+      static int _GetNumofProperties(byte sen);
 
       static String GetListofProperties(byte sen)
       {
@@ -62,8 +63,9 @@ class SoftataDevice_Sensor: public SoftataDevice
         {
           
           String cmd = String(SENSOR_CMDS[n]);
-          cmd.replace("s_","");
-          cmd.replace("S_","");
+          //cmd.replace("s_","");
+          //cmd.replace("S_","");
+          //cmd.replace("S__","");
           cmd.replace("CMD","");
           cmd.replace("cmd","");
           list.concat(cmd);
@@ -108,7 +110,7 @@ class SoftataDevice_Sensor: public SoftataDevice
       virtual bool Setup(byte * settings, byte numSettings=1);
       static String GetPins();
 
-      virtual bool ReadAll(double * values);
+      virtual Tristate ReadAll(double * values);
       virtual String GetTelemetry();
       virtual double Read(int property);
       virtual CallbackInfo * GetCallbackInfo();

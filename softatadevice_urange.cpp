@@ -43,7 +43,7 @@ CallbackInfo * SoftataDevice_URangeSensor::GetCallbackInfo()
 }
 
 
-bool SoftataDevice_URangeSensor::ReadAll(double* values)
+Tristate SoftataDevice_URangeSensor::ReadAll(double* values)
 {
     values[0] = (double)ultrasonic->MeasureInMillimeters();
     if(values[0]==0)
@@ -54,7 +54,7 @@ bool SoftataDevice_URangeSensor::ReadAll(double* values)
     values[2] = (double)ultrasonic->MeasureInInches();
     if(values[2]==0)
         values[2] = (double)ultrasonic->MeasureInInches();
-    return true;
+    return (Tristate)true;
 }
 
 String SoftataDevice_URangeSensor::GetTelemetry()

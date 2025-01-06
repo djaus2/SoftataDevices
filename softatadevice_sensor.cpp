@@ -12,7 +12,7 @@ SoftataDevice_Sensor *  _GetNewSensorInstance(byte deviceInstanceType)
             dev  = new SoftataDevice_DHT11(16);
             break;
         case DHTXX:
-            //dev  = new SoftataDevice_DHTXX();
+            dev  = new SoftataDevice_DHTXX();
             break;
         case BME280:
             dev  = new SoftataDevice_BME280();
@@ -95,7 +95,7 @@ SoftataDevice_Sensor * SoftataDevice_Sensor::_Setup(byte actuator, byte * settin
             break;
             case DHTXX:
             {
-              //props = SoftataDevice_DHTXX::GetListofProperties();
+              props = SoftataDevice_DHTXX::GetListofProperties();
             }
             break;                       
           case BME280:
@@ -122,4 +122,45 @@ SoftataDevice_Sensor * SoftataDevice_Sensor::_Setup(byte actuator, byte * settin
             break;
         }
         return props;
+      }
+
+      int SoftataDevice_Sensor::_GetNumofProperties(byte sen)
+      {
+        int num = 0;
+        switch (sen)
+        {
+          //#define SENSORS C(DHT11)C(SWITCH)C(SOUND)C(BME280)
+          case DHT11:
+            {
+              num = NUM_DHT11_PROPERTIES;
+            }
+            break;
+            case DHTXX:
+            {
+              num = NUM_DHTXX_PROPERTIES;
+            }
+            break;                       
+          case BME280:
+            {
+              num = NUM_BME280_PROPERTIES;
+            }
+            break;
+          case UltrasonicRanger:
+            {
+              num = NUM_URANGE_PROPERTIES;
+            }
+            break; 
+          case Simulator:
+            {
+              num = NUM_SIMULATOR_PROPERTIES;
+            } 
+            break;                     
+          // Add more here
+          default:
+            {
+              num = -1;
+            }
+            break;
+        }
+        return num;
       }

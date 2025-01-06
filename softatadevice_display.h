@@ -56,8 +56,9 @@ class SoftataDevice_Display: public SoftataDevice
         {
           
           String cmd = String(CMDS[n]);
-          cmd.replace("d_","");
-          cmd.replace("D_","");
+          //cmd.replace("d_","");
+          //cmd.replace("D_","");
+          //cmd.replace("D__","");
           cmd.replace("CMD","");
           cmd.replace("cmd","");
           list.concat(cmd);

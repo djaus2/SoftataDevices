@@ -44,16 +44,22 @@
     }
 
     
-    bool SoftataDevice_SensorSimulator::ReadAll(double * values)
+    Tristate SoftataDevice_SensorSimulator::ReadAll(double * values)
     {
       //Read all values and assign to values array eg:
       values[0] = Read(0);
-      return true;
+      return notImplemented;  //Deliberate error
     }
 
     String SoftataDevice_SensorSimulator::GetTelemetry()
     {
       double values[NUM_SIMULATOR_PROPERTIES];
+      // Return 10.00 +- upto 1.00
+      double val = 10.00;
+      double diff = random(0,100)-50;
+      diff /= 50;
+      val += diff;
+      values[0] = val;
       if(ReadAll(values))
       {
         String msg="{\"temperature\":";

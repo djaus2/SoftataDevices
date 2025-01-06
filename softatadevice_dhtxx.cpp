@@ -24,7 +24,7 @@ int XPins[] = {XPINS};
 
     SoftataDevice_DHTXX::SoftataDevice_DHTXX()
     {
-      SoftataDevice_Sensor::num_properties = NUM_DHT11_PROPERTIES;
+      SoftataDevice_Sensor::num_properties = NUM_DHTXX_PROPERTIES;
       SoftataDevice_Sensor::sensorType = DHTXX;
     }
 
@@ -32,7 +32,7 @@ int XPins[] = {XPINS};
     {
       Pin = pin;
       SetupPin(Pin);
-      SoftataDevice_Sensor::num_properties = NUM_DHT11_PROPERTIES;
+      SoftataDevice_Sensor::num_properties = NUM_DHTXX_PROPERTIES;
       SoftataDevice_Sensor::sensorType = DHTXX;
     }
 
@@ -98,12 +98,12 @@ int XPins[] = {XPINS};
     {
       Pin = XDEFAULT_PIN;
       return SetupPin(Pin);
-      num_properties = 2;
+      //num_properties = NUM_DHTXX_PROPERTIES;
     }
 
 
 
-    bool SoftataDevice_DHTXX::ReadAll(double * values)
+    Tristate SoftataDevice_DHTXX::ReadAll(double * values)
     {
       // READ DATA
       Serial.print("DHT");
@@ -172,11 +172,11 @@ int XPins[] = {XPINS};
         OK = true;
       }
       if(!OK)
-        return false;
+        return (Tristate)false;
       // DISPLAY DATA
       values[0] = mySensor->getTemperature();
       values[1] = mySensor->getHumidity();
-      return true;
+      return (Tristate)true;
     }
 
     String SoftataDevice_DHTXX::GetTelemetry()

@@ -27,6 +27,11 @@ class SoftataDevice
         
       }
 
+      static byte GetSoftataDeviceCmdBase()
+      {
+        return SOFTATDEVICE_CMD;
+      }
+
 /*
       static SoftataDevice(SoftataDevice_Actutor * act)
       {

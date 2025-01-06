@@ -55,6 +55,7 @@ Tristate Adafruit_NeoPixel8::Home()
 
 Tristate Adafruit_NeoPixel8::Misc(byte cmd, byte * data, byte length)
 {
+    int num;
     if (cmd<0)
         return (Tristate)false;
     else if(cmd>(byte) NEOPIXELMiscCmds_MAX)
@@ -63,13 +64,13 @@ Tristate Adafruit_NeoPixel8::Misc(byte cmd, byte * data, byte length)
     //while(pixels->canShow()){delay(1);}
     switch(Cmd)
     {
-        case setpixelcolor: 
+        case setpixelcolorOne: 
             if (length<4)
                 return (Tristate)false;
-            pixels->setPixelColor(data[0], pixels->Color(data[1], data[2], data[3]));
+            pixels->setPixelColor(data[3], pixels->Color(data[0], data[1], data[2]));
             pixels->show(); 
             break;
-        case setpixelcolorAll: ;
+        case setpixelcolorAll: 
             if (length<3)
                 return (Tristate)false;
             for(int i=0;i<numPixels;i++)
@@ -112,11 +113,11 @@ Tristate Adafruit_NeoPixel8::Misc(byte cmd, byte * data, byte length)
             pixels->setBrightness((byte)data[0]);
             pixels->show(); 
             break;
-        case setN: 
+        case setNum: 
             //Display a 0..8 level:
             if (length<4)
                 return (Tristate)false;
-            int num = data[3];
+            num = data[3];
             // Truncate "over value rather than fail."
             if(num>numPixels)
                 num = numPixels;
@@ -125,6 +126,27 @@ Tristate Adafruit_NeoPixel8::Misc(byte cmd, byte * data, byte length)
             {
                 pixels->setPixelColor(i, pixels->Color(data[0], data[1], data[2]));
             }
+            // Off
+            for(int i=num;i<numPixels;i++)
+            {
+                pixels->setPixelColor(i, pixels->Color(0, 0, 0));
+            }
+            pixels->show(); 
+            break;
+        case setPxl: 
+            //Display a 0..8 level:
+            if (length<4)
+                return (Tristate)false;
+            num = data[3];
+            // Truncate "over value rather than fail."
+            if(num>numPixels)
+                num = numPixels;
+            // On
+            for(int i=0;i<num-1;i++)
+            {
+                pixels->setPixelColor(i,  pixels->Color(0, 0, 0));
+            }
+            pixels->setPixelColor(num-1, pixels->Color(data[0], data[1], data[2]));
             // Off
             for(int i=num;i<numPixels;i++)
             {
