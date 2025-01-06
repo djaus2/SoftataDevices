@@ -1,5 +1,15 @@
 ## SoftataDevices
 
+----
+
+### Updates
+- Added QuadRelays: Bank of 4  bit manipulated relays. Could be used as any 4 bit digital output.
+  - Can also write a byte value to set/clr all 4 bits in one call.
+  - ToDo: Set number of bits/relqays
+  - Note 4 bits use 4 consecutive GPIO ports, setup only needs first (default 16).
+ 
+----
+
 Updared base Arduino Softata code from the GitHub [djaus2/Soft-ata](https://github.com/djaus2/Soft-ata) repository.
 
 > This is the Arduino code for interacting with devices from a Raspbery Pi Pico W. The top level code that orchestrates the remote interaction with these devices is not included here. That remains in the Softa-ata repsository in the Softata sketch there and  is subject to an update for this.
