@@ -37,6 +37,7 @@ SoftataDevice
 │       Relay
 │       Servo
 │       Sipo
+│       QuadRelay
 │
 ├───Display
 │       Bargraph
