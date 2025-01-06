@@ -13,7 +13,7 @@
 Updared base Arduino Softata code from the GitHub [djaus2/Soft-ata](https://github.com/djaus2/Soft-ata) repository.
 
 > This is the Arduino code for interacting with devices from a Raspbery Pi Pico W. The top level code that orchestrates the remote interaction with these devices is not included here. That remains in the Softa-ata repsository in the Softata sketch there and  is subject to an update for this.  
-> Soft-ta/Code.***SoftaaConsole2*** app exercises this library. 
+> Soft-ta/code/***SoftaaConsole2*** app exercises this library. 
 
 **Refactoring:**
 _From another perspective_ This is a refactoring of the repository [djaus2/Soft-ata](https://gitshub.com/Softata) such that ```<repo>/code/Softata/src``` directory is separated to here.
