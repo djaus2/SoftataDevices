@@ -50,6 +50,11 @@ int SoftataDevice_Relay::GetInstanceValueRange()
     return RELAY_MAX;
 }
 
+actuatorcapabilities SoftataDevice_Relay::GetActuatorCapabilities()
+{
+    return a_singlebit;
+}
+
 /*String SoftataDevice_Relay::GetPins()
 {
     String msg = "Relay Pins";

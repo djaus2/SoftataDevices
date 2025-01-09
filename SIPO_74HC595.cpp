@@ -36,6 +36,11 @@ int Sipo74hc95::GetInstanceValueRange()
     return SIPO_74HC595_MAX;
 }
 
+actuatorcapabilities Sipo74hc95::GetActuatorCapabilities()
+{
+    return a_both;
+}
+
 /*String  Sipo74hc95::GetPins()
 {
     String msg = "SIPO_74HC595 Pins:";

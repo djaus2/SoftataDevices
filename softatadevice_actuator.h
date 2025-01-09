@@ -114,6 +114,8 @@ class SoftataDevice_Actuator: public SoftataDevice
   
       virtual bool Setup();
       virtual bool Setup(byte * settings, byte numSettings);
+
+      virtual actuatorcapabilities GetActuatorCapabilities();
       static String GetValueRange();
       static String GetPins();
 
@@ -159,7 +161,7 @@ class SoftataDevice_Relay: public SoftataDevice_Actuator
           return msg;
       }
 
-
+      virtual actuatorcapabilities GetActuatorCapabilities();
 
       virtual bool Setup();
       virtual bool Setup(byte * settings, byte numSettings);
@@ -208,12 +210,15 @@ class SoftataDevice_QuadRelays: public SoftataDevice_Actuator
           return msg;
       }
 
+      virtual actuatorcapabilities GetActuatorCapabilities();
+
       virtual bool Setup();
       virtual bool Setup(byte * settings, byte numSettings);
       //virtual String GetPins();
 
      virtual int GetNumBits();
      virtual int GetInstanceValueRange();
+
 
       // Index for if there are an array of actuators here.
       virtual Tristate Write(double value, int index);
@@ -265,6 +270,8 @@ class SoftataDevice_Servo: public SoftataDevice_Actuator
       virtual bool Setup(byte * settings, byte numSettings);
       //virtual String GetPins();
 
+      virtual actuatorcapabilities GetActuatorCapabilities();
+
       virtual int GetNumBits();
       virtual int GetInstanceValueRange();
 
@@ -311,6 +318,7 @@ class Sipo74hc95: public SoftataDevice_Actuator
           return msg;
       }
 
+      virtual actuatorcapabilities GetActuatorCapabilities();
 
       virtual bool Setup();
       virtual bool Setup(byte * settings, byte numSettings);

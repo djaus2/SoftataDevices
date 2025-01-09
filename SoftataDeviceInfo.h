@@ -67,8 +67,9 @@ static int bitStuffing[] = {256,16,16,16,16,256,16};
 #define SOFTATADEVICE_ACTUATOR_CMD (SOFTATDEVICE_CMD +2)
 ///////////////////////// A C T U A T O R S /////////////////////////////////////////////////
 
+enum actuatorcapabilities {a_singlebit,a_bitonly,a_writeonly,a_both};
 
-#define ACTUATOR_COMMANDS C(A_getCmdsCMD)C(A_getDevicesCMD)C(A_getPinsCMD)C(A_setupDefaultCMD)C(A_setupCMD)C(a__getValueRangeCMD)C(a_writeDoubleValueCMD)C(a_writeByteValueCMD)C(a_writeWordValueCMD)C(a_SetBitStateCMD)C(a_SetBitCMD)C(a_ClearBitCMD)C(a_ToggleBitCMD)C(a_GetnumbitsCMD)C(a_GetInstanceValueRangeCMD)
+#define ACTUATOR_COMMANDS C(A_getCmdsCMD)C(A_getDevicesCMD)C(A_getPinsCMD)C(A_setupDefaultCMD)C(A_setupGeneralCMD)C(a__getValueRangeCMD)C(a_writeDoubleValueCMD)C(a_writeByteValueCMD)C(a_writeWordValueCMD)C(a_SetBitStateCMD)C(a_SetBitCMD)C(a_ClearBitCMD)C(a_ToggleBitCMD)C(a_GetnumbitsCMD)C(a_GetInstanceValueRangeCMD)C(a_GetActuatorCapabilitiesCMD)
 
 #ifdef RPI_PICO_DEFAULT
 #define SERVO_PINOUT "GPIO: Pin 11 or whatever 0 to 26"

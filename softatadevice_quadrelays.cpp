@@ -20,22 +20,33 @@ bool SoftataDevice_QuadRelays::Setup()
   return true;
 }
 
+actuatorcapabilities SoftataDevice_QuadRelays::GetActuatorCapabilities()
+{
+    return a_both;
+}
+
+
 bool SoftataDevice_QuadRelays::Setup(byte * settings, byte numSettings)
 {
-
-  if(numSettings>0)
-  {
-    relayPin = settings[0];
-  }
+    if(numSettings>0)
+    {
+        relayPin = settings[0];
+        if(numSettings==2)
+        {
+            num_bits = settings[1];      
+        }
+    }
    else
    {
-        Serial.print("Setting up QuadRelays FAILED: No settings (pin no.)");
-        return false;
+        Serial.print("Setting up QuadRelays. No settings (pin no.) Using Default Settings ");
+        return Setup();
    }
     Serial.print("Setting up quadrelays on pins: ");
     Serial.print(relayPin);
     Serial.print(" to pin ");
-    Serial.println(relayPin+3);
+    Serial.print(relayPin+(num_bits-1));
+    Serial.print(" Num_bits:");
+    Serial.println(num_bits);
     for (int i=0;i<num_bits;i++)
     {
         pinMode(relayPin+i, OUTPUT);
@@ -87,7 +98,6 @@ Tristate SoftataDevice_QuadRelays::Write(int value, int index, int numBytes )
     }
     for(int i=0; i<num_bits;i++)
     {
-        Serial.println(value & (1<<i));
         if(value & (1<<i))
         {
             digitalWrite(relayPin+i, true);
@@ -103,9 +113,6 @@ Tristate SoftataDevice_QuadRelays::Write(int value, int index, int numBytes )
 
 Tristate SoftataDevice_QuadRelays::SetBitState(bool state,int bitNo)
 {
-    Serial.println(bitNo);
-    Serial.println(relayPin);
-    Serial.println(num_bits);
     if(bitNo >= num_bits)
     {
         Serial.println("Setting quadrelays bit: Invalid bit number");
@@ -126,9 +133,6 @@ Tristate SoftataDevice_QuadRelays::SetBitState(bool state,int bitNo)
 
 Tristate SoftataDevice_QuadRelays::SetBit(int bitNo )
 {
-    Serial.println(bitNo);
-    Serial.println(relayPin);
-    Serial.println(num_bits);
     if(bitNo >= num_bits)
     {
         Serial.println("Setting quadrelays bit: Invalid bit number");
@@ -147,9 +151,6 @@ Tristate SoftataDevice_QuadRelays::SetBit(int bitNo )
 
 Tristate SoftataDevice_QuadRelays::ClearBit(int bitNo)
 {
-    Serial.println(bitNo);
-    Serial.println(relayPin);
-    Serial.println(num_bits);
     if(bitNo >= num_bits)
     {
         Serial.println("Setting quadrelays bit: Invalid bit number");
@@ -168,9 +169,6 @@ Tristate SoftataDevice_QuadRelays::ClearBit(int bitNo)
 
 Tristate SoftataDevice_QuadRelays::ToggleBit(int bitNo)
 {
-    Serial.println(bitNo);
-    Serial.println(relayPin);
-    Serial.println(num_bits);
     if(bitNo >= num_bits)
     {
         Serial.println("Setting quadrelays bit: Invalid bit number");

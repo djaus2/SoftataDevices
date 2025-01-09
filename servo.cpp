@@ -56,6 +56,11 @@ int SoftataDevice_Servo::GetInstanceValueRange()
     return SERVO_MAX;
 }
 
+actuatorcapabilities SoftataDevice_Servo::GetActuatorCapabilities()
+{
+return a_writeonly;
+}
+
 /*
 String SoftataDevice_Servo::GetPins()
 {
