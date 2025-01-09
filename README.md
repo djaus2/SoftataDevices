@@ -5,7 +5,7 @@
 ### Updates
 - Added ActuatorCapabilities property to each actuator to indicate which actuator methods apply and hence what data is required.
   - Once instantiated, actuator can be queried for this property
-  - SoftataConsole2 app then can determine what data (byte/bit/none) is required for a method call.
+  - SoftataConsole2 app then can determine what data (byte/bit/none) is required for a method call.  
   ```enum actuatorcapabilities {a_singlebit,a_bitonly,a_writeonly,a_both}```
 - Added QuadRelays: Bank of 4  bit manipulated relays. Could be used as any 4 bit digital output.
   - Can also write a byte value to set/clr all 4 bits in one call.
