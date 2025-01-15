@@ -56,9 +56,9 @@ int SoftataDevice_Servo::GetInstanceValueRange()
     return SERVO_MAX;
 }
 
-actuatorcapabilities SoftataDevice_Servo::GetActuatorCapabilities()
+byte SoftataDevice_Servo::GetActuatorCapabilities()
 {
-return a_writeonly;
+    return (byte)(a_writebyte);
 }
 
 /*

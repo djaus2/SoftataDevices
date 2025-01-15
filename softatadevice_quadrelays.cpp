@@ -20,9 +20,9 @@ bool SoftataDevice_QuadRelays::Setup()
   return true;
 }
 
-actuatorcapabilities SoftataDevice_QuadRelays::GetActuatorCapabilities()
+byte SoftataDevice_QuadRelays::GetActuatorCapabilities()
 {
-    return a_both;
+    return (byte)(a_bit & a_writebyte);
 }
 
 

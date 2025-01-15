@@ -50,9 +50,9 @@ int SoftataDevice_Relay::GetInstanceValueRange()
     return RELAY_MAX;
 }
 
-actuatorcapabilities SoftataDevice_Relay::GetActuatorCapabilities()
+byte SoftataDevice_Relay::GetActuatorCapabilities()
 {
-    return a_singlebit;
+    return (byte)(a_none);
 }
 
 /*String SoftataDevice_Relay::GetPins()

@@ -36,9 +36,9 @@ int Sipo74hc95::GetInstanceValueRange()
     return SIPO_74HC595_MAX;
 }
 
-actuatorcapabilities Sipo74hc95::GetActuatorCapabilities()
+byte Sipo74hc95::GetActuatorCapabilities()
 {
-    return a_both;
+    return (byte)(a_bit & a_writebyte);
 }
 
 /*String  Sipo74hc95::GetPins()

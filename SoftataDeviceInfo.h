@@ -67,7 +67,8 @@ static int bitStuffing[] = {256,16,16,16,16,256,16};
 #define SOFTATADEVICE_ACTUATOR_CMD (SOFTATDEVICE_CMD +2)
 ///////////////////////// A C T U A T O R S /////////////////////////////////////////////////
 
-enum actuatorcapabilities {a_singlebit,a_bitonly,a_writeonly,a_both};
+//enum actuatorcapabilities {a_singlebit,a_bitonly,a_writeonly,a_both};
+enum actuatorcapabilities { a_none=0, a_bit = 1 , a_writebyte = 2, a_writeword = 4, a_writedouble = 8 };
 
 #define ACTUATOR_COMMANDS C(A_getCmdsCMD)C(A_getDevicesCMD)C(A_getPinsCMD)C(A_setupDefaultCMD)C(A_setupGeneralCMD)C(a__getValueRangeCMD)C(a_writeDoubleValueCMD)C(a_writeByteValueCMD)C(a_writeWordValueCMD)C(a_SetBitStateCMD)C(a_SetBitCMD)C(a_ClearBitCMD)C(a_ToggleBitCMD)C(a_GetnumbitsCMD)C(a_GetInstanceValueRangeCMD)C(a_GetActuatorCapabilitiesCMD)
 
@@ -171,7 +172,7 @@ const char * const SENSOR_PROPERTIES[] = { SENSOR_PROPERTIESC  };
 
 ///////////////////////// D I S P L A Y S /////////////////////////////////////////////////
 
-#define DISPLAY_COMMANDS C(D_getCmdsCMD)C(D_getDevicesCMD)C(D_getPinsCMD)C(D_setupDefaultCMD)C(D_setupCMD)C(D_dispose)C(d__miscGetListCMD)C(d_clearCMD)C(d_backlightCMD)C(d_setCursorCMD)C(d_writestringCMD)C(d_cursor_writestringCMD)C(d_home)C(d_dummyCMD)C(d__miscCMD)
+#define DISPLAY_COMMANDS C(D_getCmdsCMD)C(D_getDevicesCMD)C(D_getPinsCMD)C(D_setupDefaultCMD)C(D_setupCMD)C(D_dispose)C(d__miscGetListCMD)C(d_clearCMD)C(d_backlightCMD)C(d_setCursorCMD)C(d_writestringCMD)C(d_cursor_writestringCMD)C(d_home)C(d_dummyCMD)C(d_miscCMD)
 
 // Note: Addresses are typically defined in the device library which typically use I2C0
 #define OLEDDISPLAY_ADDR   0x78
