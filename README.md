@@ -3,7 +3,7 @@
 ----
 
 ### Updates
-- Small change only to the Display.Misc method name (single underscore instead of name).
+- Small change only to the Display.Misc method name (single underscore instead of 2).
   - This brings it in line with the blog about  this at [Softata API Version 3](https://davidjones.sportronics.com.au/softata/Softata-API_Version_3-softata.html)
 - Added ActuatorCapabilities property to each actuator to indicate which actuator methods apply and hence what data is required.
   - Once instantiated, actuator can be queried for this property
