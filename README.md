@@ -50,7 +50,7 @@ SoftataDevice -  | - Sensors
 SoftataDevice
 |
 ├───Actuator
-│       Relay
+│       (Grove) Relay
 │       Servo
 │       Sipo
 │       QuadRelay
@@ -59,16 +59,16 @@ SoftataDevice
 ├───Display
 │       Bargraph
 │       GBargraph
-│       LCD1602
+│       (Grove) LCD1602
 │       NEOPIXEL
-│       OLED096
+│       (Grove) OLED096
 │
 └───Sensor
         BME280
-        DHT11
-        DHTXX
+        (Grove) DHT11
+        (Grove) DHTXX _(Is an update of DHT11)_
         Simulator
-        UltrasonicRanger
+        (grove) UltrasonicRanger
 ```
 
 The files in this repository are those from the src folder from the Softata Sketch in the Softa-ata repository _( see below)_  plus some from the root of the sketch folder. The Soft-ata repsository needs to be modified so as remove the src folder from this Softata folder plus those extra files, and for the softatta sketvch there to to reference this repository.
