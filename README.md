@@ -66,7 +66,7 @@ SoftataDevice
 └───Sensor
         BME280
         (Grove) DHT11
-        (Grove) DHTXX _(Is an update of DHT11)_
+        (Grove) DHTXX (Is an update of DHT11)
         Simulator
         (grove) UltrasonicRanger
 ```
