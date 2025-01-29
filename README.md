@@ -54,6 +54,7 @@ SoftataDevice
 │       Servo
 │       Sipo
 │       QuadRelay
+|       (Grove) LED
 │
 ├───Display
 │       Bargraph
