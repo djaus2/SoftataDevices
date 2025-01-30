@@ -64,12 +64,15 @@ SoftataDevice
 │       (Adrafruit) NEOPIXEL 
 │       (Grove) OLED096
 │
-└───Sensor
-        BME280 (Various sources, I2C connection)
-        (Grove) DHT11
-        (Grove) DHTXX (Is an update of DHT11)
-        Simulator
-        (Grove) UltrasonicRanger
+├───Sensor
+|       BME280 (Various sources, I2C connection)
+|       (Grove) DHT11
+|       (Grove) DHTXX (Is an update of DHT11)
+|       Simulator
+|       (Grove) UltrasonicRanger
+│
+└───Inputs
+        (Grove) Switch (Coming)
 ```
 
 The files in this repository are those from the src folder from the Softata Sketch in the Softa-ata repository _( see below)_  plus some from the root of the sketch folder. The Soft-ata repsository needs to be modified so as remove the src folder from this Softata folder plus those extra files, and for the softatta sketvch there to to reference this repository.
