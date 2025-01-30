@@ -52,19 +52,19 @@ SoftataDevice
 ├───Actuator
 │       (Grove) Relay
 │       Servo
-│       Sipo
-│       QuadRelay
+│       Sipo (74HC595)
+│       QuadRelay (Generic)
 |       (Grove) LED
 │
 ├───Display
 │       Bargraph (using Sipo)
 │       (Grove) Bargraph [GBargraph]
 │       (Grove) LCD1602
-│       NEOPIXEL
+│       (Adrafruit) NEOPIXEL 
 │       (Grove) OLED096
 │
 └───Sensor
-        BME280
+        BME280 (Various sources, I2C connection)
         (Grove) DHT11
         (Grove) DHTXX (Is an update of DHT11)
         Simulator
