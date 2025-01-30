@@ -57,8 +57,8 @@ SoftataDevice
 |       (Grove) LED
 │
 ├───Display
-│       Bargraph
-│       GBargraph
+│       Bargraph (using Sipo)
+│       (Grove) Bargraph [GBargraph]
 │       (Grove) LCD1602
 │       NEOPIXEL
 │       (Grove) OLED096
