@@ -6,10 +6,11 @@
 
 // As per softata.h:
 //enum DeviceType  {sensor,actuator,communication,display};
-#define DEVICETYPES G_DEVICETYPES
-#define SENSORS     G_SENSORS
-#define ACTUATORS   G_ACTUATORS
-#define DISPLAYS G_DISPLAYS
+#define DEVICETYPES  G_DEVICETYPES
+#define SENSORS      G_SENSORS
+#define ACTUATORS    G_ACTUATORS
+#define DISPLAYS     G_DISPLAYS
+#define DEVICEINPUTS G_DEVICEINPUTS
 
 #define C(x) x,
 enum DeviceType { DEVICETYPES DEVICETYPE_NONE};

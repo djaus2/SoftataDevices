@@ -46,13 +46,16 @@ static int bitStuffing[] = {256,16,16,16,16,256,16};
 // Max number of bytes in msgs from client to service here
 //#define maxRecvdMsgBytes 32
 
-#define G_DEVICETYPES C(sensor)C(display)C(actuator)C(communication)C(serial)
+#define G_DEVICETYPES C(sensor)C(display)C(actuator)C(communication)C(serial)C(deviceinput)
 
 //Add other sensors/actuators here C bracketed, on end.
 #define G_SENSORS C(DHT11)C(BME280)C(UltrasonicRanger)C(Simulator)C(DHTXX)
-#define G_ACTUATORS C(SERVO)C(SIPO_74HC595)C(RELAY)C(QUADRELAYS)
+#define G_ACTUATORS C(SERVO)C(SIPO_74HC595)C(RELAY)C(QUADRELAYS)C(LED) //LED or other signle bit Grove devices need to be last
 #define G_DISPLAYS C(OLED096)C(LCD1602)C(NEOPIXEL)C(BARGRAPH)C(GBARGRAPH)
 #define G_SERIAL C(LOOPBACK)C(GPS)
+#define G_DEVICEINPUTS C(GSWITCH)
+// Note direct assignment of these at top of softatdevice.h
+// ie Add a new device type here then #define to this wuthout the G_ prefix in that file.
 
 //////////////////////// C O M M A N D   T Y P ES  //////////////////////////////////////////
 #define ANALOG_CMDS 0xA0
@@ -62,15 +65,46 @@ static int bitStuffing[] = {256,16,16,16,16,256,16};
 #define SERIAL_CMDS 0xE0
 
 #define SOFTATDEVICE_CMD 0xF0
-#define SOFTATADEVICE_SENSOR_CMD  (SOFTATDEVICE_CMD +0)
-#define SOFTATADEVICE_DISPLAY_CMD  (SOFTATDEVICE_CMD+1)
-#define SOFTATADEVICE_ACTUATOR_CMD (SOFTATDEVICE_CMD +2)
+#define SOFTATADEVICE_SENSOR_CMD        (SOFTATDEVICE_CMD + sensor)
+#define SOFTATADEVICE_DISPLAY_CMD       (SOFTATDEVICE_CMD + display)
+#define SOFTATADEVICE_ACTUATOR_CMD      (SOFTATDEVICE_CMD + actuator)
+#define SOFTATADEVICE_DEVICEINPUT_CMD   (SOFTATDEVICE_CMD + deviceinput)
+
+///////////////////////// I N P U T S /////////////////////////////////////////////////
+
+
+enum DEVICEINPUTcapabilities { i_none=0, i_bit = 1 , i_readbyte = 2, i_readword = 4};
+
+#define DEVICEINPUT_COMMANDS C(I_getCmdsCMD)C(I_getDevicesCMD)C(I_getPinsCMD)C(I_setupDefaultCMD)C(I_setupGeneralCMD)C(i__getValueRangeCMD)C(i_readByteValueCMD)C(i_readWordValueCMD)C(i_PollBitCMD)C(i_GetnumbitsCMD)C(i_GetInstanceValueRangeCMD)C(i_GetInputCapabCMD)
+
+#ifdef RPI_PICO_DEFAULT
+#define GSWITCH_PINOUT "GPIO: Pin 11 or whatever 0 to 26"
+#elif defined(SoftataDevice_RPI_PICO_SHIELD)
+#define GSWITCH_PINOUT "Pin 16 (default), 16 to 21"
+#endif
+
+#define DEVICEINPUT_PINOUTSC C(GSWITCH_PINOUT)
+#define C(x) x,
+const char * const DEVICEINPUT_PINOUTS[] = { DEVICEINPUT_PINOUTSC  };
+#undef C
+
+#define DEFAULT_GSWITCH_PIN 16
+
+#define GSWITCH_MAX 1
+#define GSWITCH_RANGE "N/A"
+
+#define DEVICEINPUT_RANGEC C(GSWITCH_RANGE)
+
+#define C(x) x,
+const char * const DEVICEINPUT_RANGES[] = { DEVICEINPUT_RANGEC  };
+#undef C
+
 ///////////////////////// A C T U A T O R S /////////////////////////////////////////////////
 
 //enum actuatorcapabilities {a_singlebit,a_bitonly,a_writeonly,a_both};
 enum actuatorcapabilities { a_none=0, a_bit = 1 , a_writebyte = 2, a_writeword = 4, a_writedouble = 8 };
 
-#define ACTUATOR_COMMANDS C(A_getCmdsCMD)C(A_getDevicesCMD)C(A_getPinsCMD)C(A_setupDefaultCMD)C(A_setupGeneralCMD)C(a__getValueRangeCMD)C(a_writeDoubleValueCMD)C(a_writeByteValueCMD)C(a_writeWordValueCMD)C(a_SetBitStateCMD)C(a_SetBitCMD)C(a_ClearBitCMD)C(a_ToggleBitCMD)C(a_GetnumbitsCMD)C(a_GetInstanceValueRangeCMD)C(a_GetActuatorCapabilitiesCMD)
+#define ACTUATOR_COMMANDS C(A_getCmdsCMD)C(A_getDevicesCMD)C(A_getPinsCMD)C(A_setupDefaultCMD)C(A_setupGeneralCMD)C(a__getValueRangeCMD)C(a_writeDoubleValueCMD)C(a_writeByteValueCMD)C(a_writeWordValueCMD)C(a_SetBitStateCMD)C(a_SetBitCMD)C(a_ClearBitCMD)C(a_ToggleBitCMD)C(a_GetnumbitsCMD)C(a_GetInstanceValueRangeCMD)C(a_GetActuatorCapabCMD)
 
 #ifdef RPI_PICO_DEFAULT
 #define SERVO_PINOUT "GPIO: Pin 11 or whatever 0 to 26"
@@ -78,10 +112,10 @@ enum actuatorcapabilities { a_none=0, a_bit = 1 , a_writebyte = 2, a_writeword =
 #define SIPO_74HC595_PINOUT "GPIO: Pin 11 or whatever 0 to 26. 3 pins required, DS, ST_CP and SH_CP."
 #define QUADRELAYS_PINOUT "GPIO: Pins 11,12,13,14 or whatever 0 to 26. 4 pins required."
 #elif defined(SoftataDevice_RPI_PICO_SHIELD)
-#define SERVO_PINOUT "Pin 16 (default), 18 or 20"
-#define RELAY_PINOUT "Pin 16 (default), 18 or 20"
-#define SIPO_74HC595_PINOUT "Pins 16 (DS of 74HC595-Pin14) + 20 (ST_CP of 74HC595-Pin12) + 21 (SH_CP of 74HC595-Pin11)"
-#define QUADRELAYS_PINOUT "Pin 16 (default), 18"
+#define SERVO_PINOUT "Pin 16 (default), 16 to 21"
+#define RELAY_PINOUT "Pin 16 (default), 16 to 21 (Grove evens only)"
+#define SIPO_74HC595_PINOUT "Pins 16 (DS of 74HC595-Pin14) + 20 (ST_CP of 74HC595-Pin12) + 21 (SH_CP of 74HC595-Pin11) Option set num bits"
+#define QUADRELAYS_PINOUT "Pin 16 (default), 16 to 21 (Grove evens only) Option set num bits"
 #endif
 
 #define ACTUATOR_PINOUTSC C(SERVO_PINOUT)C(SIPO_74HC595_PINOUT)C(RELAY_PINOUT)C(QUADRELAYS_PINOUT)
@@ -108,6 +142,8 @@ const char * const ACTUATOR_PINOUTS[] = { ACTUATOR_PINOUTSC  };
 #define C(x) x,
 const char * const ACTUATOR_RANGES[] = { ACTUATOR_RANGEC  };
 #undef C
+
+
 
 ///////////////////////// S E N S O R S /////////////////////////////////////////////////
 

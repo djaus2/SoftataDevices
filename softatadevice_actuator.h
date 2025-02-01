@@ -78,11 +78,11 @@ class SoftataDevice_Actuator: public SoftataDevice
         int numActuators = (int) ACTUATOR_NONE;
         for (int n=0;n<numActuators;n++)
         {
-          SoftataActuator s = (SoftataActuator)n;
-          String name = String(actuator_name[s]);
+          //SoftataActuator s = (SoftataActuator)n;
+          String name = String(actuator_name[n]);
           if (actuatorName.compareTo(name)==0)
           {
-            return (int)s;
+            return (int)n;
           }
         }
         return INT_MAX;
@@ -149,7 +149,7 @@ class SoftataDevice_Relay: public SoftataDevice_Actuator
 
       static arduino::String GetValueRange()
       {
-        String msg = "Relay Rangge: ";
+        String msg = "Relay Range: ";
         msg.concat(RELAY_RANGE);
         return msg;
       }
@@ -254,7 +254,7 @@ class SoftataDevice_Servo: public SoftataDevice_Actuator
 
       static arduino::String GetValueRange()
       {
-        String msg = "";;
+        String msg = "Servo Range";;
         msg.concat(SERVO_RANGE);
         return msg;
       }
@@ -306,7 +306,7 @@ class Sipo74hc95: public SoftataDevice_Actuator
 
       static arduino::String GetValueRange()
       {
-        String msg = "";;
+        String msg = "Sipo Range";;
         msg.concat(SIPO_74HC595_RANGE);
         return msg;
       }

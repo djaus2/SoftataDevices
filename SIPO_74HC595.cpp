@@ -38,7 +38,7 @@ int Sipo74hc95::GetInstanceValueRange()
 
 byte Sipo74hc95::GetActuatorCapabilities()
 {
-    return (byte)(a_bit & a_writebyte);
+    return (byte)(a_bit | a_writebyte);
 }
 
 /*String  Sipo74hc95::GetPins()

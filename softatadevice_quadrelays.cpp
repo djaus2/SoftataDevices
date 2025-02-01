@@ -22,7 +22,7 @@ bool SoftataDevice_QuadRelays::Setup()
 
 byte SoftataDevice_QuadRelays::GetActuatorCapabilities()
 {
-    return (byte)(a_bit & a_writebyte);
+    return (byte)(a_bit | a_writebyte);
 }
 
 
@@ -128,7 +128,7 @@ Tristate SoftataDevice_QuadRelays::SetBitState(bool state,int bitNo)
     Serial.print(" to ");
     Serial.println(state);
     digitalWrite(relayPin+bitNo, state);
-    return invalidParams;
+    return (Tristate)true;
 }
 
 Tristate SoftataDevice_QuadRelays::SetBit(int bitNo )
