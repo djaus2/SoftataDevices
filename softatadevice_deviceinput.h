@@ -2,6 +2,8 @@
 #define SoftataDevice_DEVICEINPUTH
 #include "softatadevice.h"
 
+#include "ic_74hc165_shiftRegister.h"
+
 #define STRINGIFY(x) #x
 #define TOSTRING(x) STRINGIFY(x)
 
@@ -123,9 +125,9 @@ class SoftataDevice_DeviceInput: public SoftataDevice
       virtual int GetInstanceValueRange();
 
       // Index for if there are an array of deviceinputs here.
-      virtual byte readByte(int index, int numBytes = 1);
-      virtual word readWord(int index, int numBytes = 1);
-      virtual bool PollBit();
+      virtual byte readByte();
+      virtual word readWord();
+      virtual bool PollBit(byte bitNo=0);
       DeviceType deviceType = deviceinput;
     protected:
       int num_properties=0;
@@ -167,9 +169,9 @@ class SoftataDevice_GSwitch: public SoftataDevice_DeviceInput
       virtual int GetInstanceValueRange();
 
       // Index for if there are an array of deviceinputs here.
-      virtual byte readByte(int index, int numBytes = 1);
-      virtual word readWord(int index, int numBytes = 1);
-      virtual bool PollBit();
+      virtual byte readByte();
+      virtual word readWord();
+      virtual bool PollBit(byte bitNo=0);
 
       DeviceType deviceType = deviceinput;
     protected:
@@ -178,4 +180,55 @@ class SoftataDevice_GSwitch: public SoftataDevice_DeviceInput
       byte gswitchPin = 16;
 };
 #endif
+
+#ifndef SIPINH
+#define SIPINH
+
+
+
+#define NUM_SETTINGS 4 // 3 pins plus number of bytes
+
+class Piso74HC165: public SoftataDevice_DeviceInput
+{
+    public:
+      Piso74HC165();
+      Piso74HC165(int pin);
+
+      static arduino::String GetValueRange()
+      {
+        String msg = "PISO74HC165 Range: ";
+        msg.concat(PISO74HC165_RANGE);
+        return msg;
+      }
+
+      static arduino::String  GetPins()
+      {
+          String msg = "PISO74HC165 Pins: ";
+          msg.concat(PISO74HC165_PINOUT);
+          return msg;
+      }
+
+      virtual byte GetInputCapabilities();
+
+      virtual bool Setup();
+      virtual bool Setup(byte * settings, byte numSettings);
+
+      virtual int GetNumBits();
+      virtual int GetInstanceValueRange();
+
+      // Index for if there are an array of deviceinputs here.
+      virtual byte readByte();
+      virtual word readWord();
+      virtual bool PollBit(byte bitNo=0);
+
+      DeviceType deviceType = deviceinput;
+    protected:
+      int num_settings=NUM_SETTINGS;
+      int num_bytes= DEFAULT_PISO74HC165_NUM_BYTES;
+      int num_bits = -1;
+      int pin = DEFAULT_PISO74HC165_PIN;
+      IC_74HC165_ShiftRegister * ic165;
+};
+#endif
+
 

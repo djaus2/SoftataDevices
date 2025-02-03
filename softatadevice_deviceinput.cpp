@@ -10,6 +10,9 @@ SoftataDevice_DeviceInput *  GetNewInputnstance(byte deviceInstanceType)
         case GSWITCH:
             dev  = new SoftataDevice_GSwitch();
             break;
+        case PISO74HC165:
+            dev  = new Piso74HC165();
+            break;
         /////////////////////////////
         // Add more inputs here // 
         /////////////////////////////

@@ -53,7 +53,7 @@ static int bitStuffing[] = {256,16,16,16,16,256,16};
 #define G_ACTUATORS C(SERVO)C(SIPO_74HC595)C(RELAY)C(QUADRELAYS)C(LED) //LED or other signle bit Grove devices need to be last
 #define G_DISPLAYS C(OLED096)C(LCD1602)C(NEOPIXEL)C(BARGRAPH)C(GBARGRAPH)
 #define G_SERIAL C(LOOPBACK)C(GPS)
-#define G_DEVICEINPUTS C(GSWITCH)
+#define G_DEVICEINPUTS C(GSWITCH)C(PISO74HC165)
 // Note direct assignment of these at top of softatdevice.h
 // ie Add a new device type here then #define to this wuthout the G_ prefix in that file.
 
@@ -79,19 +79,27 @@ enum DEVICEINPUTcapabilities { i_none=0, i_bit = 1 , i_readbyte = 2, i_readword 
 
 #ifdef RPI_PICO_DEFAULT
 #define GSWITCH_PINOUT "GPIO: Pin 11 or whatever 0 to 26"
+#define PISO74HC165_PINOUT "GPIO: Pin 11 or whatever 0 to 26. 3 pins required, Q , CLK and SH/LD#."
 #elif defined(SoftataDevice_RPI_PICO_SHIELD)
 #define GSWITCH_PINOUT "Pin 16 (default), 16 to 21"
+#define PISO74HC165_PINOUT "Pins 16 (D/Q of 74HC165-Pin9) + 20 (SH/LD# (Latch) of 74HC165-Pin1) + 21 (CLK of 74HC165-Pin2)"
 #endif
 
-#define DEVICEINPUT_PINOUTSC C(GSWITCH_PINOUT)
+#define DEVICEINPUT_PINOUTSC C(GSWITCH_PINOUT)C(PISO74HC165_PINOUT)
 #define C(x) x,
 const char * const DEVICEINPUT_PINOUTS[] = { DEVICEINPUT_PINOUTSC  };
 #undef C
 
 #define DEFAULT_GSWITCH_PIN 16
-
 #define GSWITCH_MAX 1
 #define GSWITCH_RANGE "N/A"
+
+#define DEFAULT_PISO74HC165_PIN 16
+#define DEFAULT_PISO74HC165_NUM_BYTES 1  // can be 2
+#define PISO74HC165_MAX 1  //TBD 2Do
+#define PISO74HC165_RANGE "N/A" //TBD 2Do
+
+#define SHIFTIN_74HC165_MAX PISO74HC165_MAX
 
 #define DEVICEINPUT_RANGEC C(GSWITCH_RANGE)
 

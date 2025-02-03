@@ -67,18 +67,18 @@ byte SoftataDevice_GSwitch::GetInputCapabilities()
 // No longer need. 2Do Remove
 
 
-word SoftataDevice_GSwitch::readWord(int index, int numBytes )
+word SoftataDevice_GSwitch::readWord()
 {
     return 0xffff;
 }
 
-byte SoftataDevice_GSwitch::readByte(int index, int numBytes )
+byte SoftataDevice_GSwitch::readByte()
 {
     return 0xff;
 }
 
 
-bool SoftataDevice_GSwitch::PollBit( )
+bool SoftataDevice_GSwitch::PollBit(byte bitNo)
 {
     Serial.println("Getting gswitch");
     return digitalRead(gswitchPin);
