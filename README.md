@@ -53,7 +53,7 @@ SoftataDevice
 ├───Actuator
 │       (Grove) Relay
 │       Servo
-│       Sipo (74HC595)
+│       Sipo (74HC595) 8/16 Bit Serial In Parallel Out
 │       QuadRelay (Generic)
 |       (Grove) LED
 │
@@ -73,7 +73,25 @@ SoftataDevice
 │
 └───DeviceInput
         (Grove) Switch (new)
-	Piso (74Hc165) (To be tested)
+	Pico (74Hc165) (To be tested) 8/16 Bit Parallel In Serial Out
+Input Param: 0
+OK:DeviceInput Cmds:I_getCmds,I_getDevices,I_getPins,I_setupDefault,I_setupGeneral,i__getValueRange,i_readByteValue,i_readWordValue,i_PollBit,i_Getnumbits,i_GetInstanceValueRange,i_GetInputCapab
+Get next command....Is connected.
+4-F5 0 1 0 
+0
+=================
+cmd:F5 pin:0 param:1 other:0 
+Input Param: 1
+Get next command....Is connected.
+4-F5 1 2 1 
+1
+=================
+cmd:F5 pin:1 param:2 other:1 
+Input Param: 2
+DeviceInput index:1
+DeviceInput name:PISO74HC165
+Input pinout:Pin 16 (default), 16 to 21
+Get next command.ar
 ```
 
 The files in this repository are those from the src folder from the Softata Sketch in the Softa-ata repository _( see below)_  plus some from the root of the sketch folder. The Soft-ata repsository needs to be modified so as remove the src folder from this Softata folder plus those extra files, and for the softatta sketvch there to to reference this repository.
