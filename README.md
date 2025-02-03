@@ -3,6 +3,7 @@
 ----
 
 ### Updates
+- Added 74HC165 8/16 Bit Parallel In Serial Out (To micro) _To be tested_
 - Added Grove single LED and new device class DeviceInput with (Grove) Switch. _Multibit input coming_
 - Added ActuatorCapabilities property to each actuator to indicate which actuator methods apply and hence what data is required.
   - Once instantiated, actuator can be queried for this property
@@ -53,7 +54,7 @@ SoftataDevice
 ├───Actuator
 │       (Grove) Relay
 │       Servo
-│       Sipo (74HC595) 8/16 Bit Serial In Parallel Out
+│       Sipo (74HC595) 8/16 Bit Serial In (from Micro) Parallel Out
 │       QuadRelay (Generic)
 |       (Grove) LED
 │
@@ -73,7 +74,7 @@ SoftataDevice
 │
 └───DeviceInput
         (Grove) Switch (new)
-	Pico (74Hc165) (To be tested) 8/16 Bit Parallel In Serial Out
+	Pico (74Hc165) (To be tested) 8/16 Bit Parallel In Serial Out (To micro)
 Input Param: 0
 OK:DeviceInput Cmds:I_getCmds,I_getDevices,I_getPins,I_setupDefault,I_setupGeneral,i__getValueRange,i_readByteValue,i_readWordValue,i_PollBit,i_Getnumbits,i_GetInstanceValueRange,i_GetInputCapab
 Get next command....Is connected.
