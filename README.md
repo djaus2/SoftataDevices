@@ -3,7 +3,7 @@
 ----
 
 ### Updates
-- Added Grove single  LED
+- Added Grove single LED and new device class DeviceInput with (Grove) Switch. _Multibit input coming_
 - Added ActuatorCapabilities property to each actuator to indicate which actuator methods apply and hence what data is required.
   - Once instantiated, actuator can be queried for this property
   - SoftataConsole2 app then can determine what data (byte/bit/none) is required for a method call.  
