@@ -33,7 +33,8 @@ bool Piso74HC165::Setup(byte * settings, byte numSettings)
 
 int Piso74HC165::GetNumBits()
 {
-    Serial.println("Piso74HC165::GetNumBits()");
+    Serial.print("Piso74HC165::GetNumBits(): ");
+    Serial.println(num_bits);
     return num_bits;
 }
 

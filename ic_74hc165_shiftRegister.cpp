@@ -50,7 +50,7 @@ bool IC_74HC165_ShiftRegister::Setup(byte * settings, byte numSettings)
   pinMode(clockPin, OUTPUT);
   digitalWrite(clockPin, LOW);
   pinMode(dataPin, INPUT);
-  pinMode(latchPin, INPUT);
+  pinMode(latchPin, OUTPUT);
   digitalWrite(latchPin, HIGH);
   return true;
 }
@@ -93,6 +93,7 @@ byte IC_74HC165_ShiftRegister::readByte165()
     delayMicroseconds(5);  
         //digitalWrite(clockEnablePin, LOW); Have anchored to GND
         byte value = shiftIn(dataPin, clockPin, order);
+    Serial.println(value,HEX);
      return value;
 }
 
@@ -112,6 +113,7 @@ word IC_74HC165_ShiftRegister::readWord165()
     delayMicroseconds(5);
 
     byte value1 = shiftIn(dataPin, clockPin, order);
+    Serial.println(value1,HEX);
     byte value2 = shiftIn(dataPin, clockPin, order);
 
     if(order == MSBFIRST)

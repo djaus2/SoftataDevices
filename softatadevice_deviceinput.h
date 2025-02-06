@@ -225,7 +225,7 @@ class Piso74HC165: public SoftataDevice_DeviceInput
     protected:
       int num_settings=NUM_SETTINGS;
       int num_bytes= DEFAULT_PISO74HC165_NUM_BYTES;
-      int num_bits = -1;
+      int num_bits = 8*num_bytes;
       int pin = DEFAULT_PISO74HC165_PIN;
       IC_74HC165_ShiftRegister * ic165;
 };
