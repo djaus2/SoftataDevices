@@ -74,7 +74,7 @@ SoftataDevice
 │
 └───DeviceInput
         (Grove) Switch (new)
-	Pico (74Hc165) (To be tested) 8/16 Bit Parallel In Serial Out (To micro)
+	Pico (74Hc165) (Works for 1 byte) 8/16 Bit Parallel In Serial Out (To micro)
 Input Param: 0
 OK:DeviceInput Cmds:I_getCmds,I_getDevices,I_getPins,I_setupDefault,I_setupGeneral,i__getValueRange,i_readByteValue,i_readWordValue,i_PollBit,i_Getnumbits,i_GetInstanceValueRange,i_GetInputCapab
 Get next command....Is connected.
