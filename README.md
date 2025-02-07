@@ -33,7 +33,7 @@ Devices are from one of the following classes
                  | - Actuators
 SoftataDevice -  | - Sensors
                  | - Displays
-                 | - Inputs (Switches etc) Coming
+                 | - Inputs (Switches etc)
 ```
 
 - Each of the 3 device types on the right inherit common properties and methods from the SoftatDevice class.
