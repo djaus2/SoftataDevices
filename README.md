@@ -3,7 +3,7 @@
 ----
 
 ### Updates
-- Added 74HC165 8/16 Bit Parallel In Serial Out (To micro) _To be tested_
+- Added 74HC165 8/16 Bit Parallel In Serial Out (To micro) _Now works for 1 byte. 2 bytes not yet implemented. (Close)_
 - Added Grove single LED and new device class DeviceInput with (Grove) Switch. _Multibit input coming_
 - Added ActuatorCapabilities property to each actuator to indicate which actuator methods apply and hence what data is required.
   - Once instantiated, actuator can be queried for this property
@@ -33,7 +33,7 @@ Devices are from one of the following classes
                  | - Actuators
 SoftataDevice -  | - Sensors
                  | - Displays
-                 | - Inputs (Switches etc) Coming
+                 | - Inputs (Switches etc)
 ```
 
 - Each of the 3 device types on the right inherit common properties and methods from the SoftatDevice class.
@@ -74,7 +74,7 @@ SoftataDevice
 │
 └───DeviceInput
         (Grove) Switch (new)
-	Pico (74Hc165) (To be tested) 8/16 Bit Parallel In Serial Out (To micro)
+	Pico (74Hc165) (Works for 1 byte) 8/16 Bit Parallel In Serial Out (To micro)
 Input Param: 0
 OK:DeviceInput Cmds:I_getCmds,I_getDevices,I_getPins,I_setupDefault,I_setupGeneral,i__getValueRange,i_readByteValue,i_readWordValue,i_PollBit,i_Getnumbits,i_GetInstanceValueRange,i_GetInputCapab
 Get next command....Is connected.
