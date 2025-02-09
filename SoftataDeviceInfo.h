@@ -81,8 +81,8 @@ enum DEVICEINPUTcapabilities { i_none=0, i_bit = 1 , i_readbyte = 2, i_readword 
 #define GSWITCH_PINOUT "GPIO: Pin 11 or whatever 0 to 26"
 #define PISO74HC165_PINOUT "GPIO: Pin 11 or whatever 0 to 26. 3 pins required, Q , CLK and SH/LD#."
 #elif defined(SoftataDevice_RPI_PICO_SHIELD)
-#define GSWITCH_PINOUT "Pin 16 (default), 16 to 21"
-#define PISO74HC165_PINOUT "Pins 16 (D/Q of 74HC165-Pin9) + 20 (SH/LD# (Latch) of 74HC165-Pin1) + 21 (CLK of 74HC165-Pin2)"
+#define GSWITCH_PINOUT "GPIO Pin 16 (default), 16 to 21"
+#define PISO74HC165_PINOUT "GPIO Pins 17 (D/Q of 74HC165-Pin9) + 20 (SH/LD# (Latch) of 74HC165-Pin1) + 21 (CLK of 74HC165-Pin2)"
 #endif
 
 #define DEVICEINPUT_PINOUTSC C(GSWITCH_PINOUT)C(PISO74HC165_PINOUT)
@@ -120,10 +120,10 @@ enum actuatorcapabilities { a_none=0, a_bit = 1 , a_writebyte = 2, a_writeword =
 #define SIPO_74HC595_PINOUT "GPIO: Pin 11 or whatever 0 to 26. 3 pins required, DS, ST_CP and SH_CP."
 #define QUADRELAYS_PINOUT "GPIO: Pins 11,12,13,14 or whatever 0 to 26. 4 pins required."
 #elif defined(SoftataDevice_RPI_PICO_SHIELD)
-#define SERVO_PINOUT "Pin 16 (default), 16 to 21"
-#define RELAY_PINOUT "Pin 16 (default), 16 to 21 (Grove evens only)"
-#define SIPO_74HC595_PINOUT "Pins 16 (DS of 74HC595-Pin14) + 20 (ST_CP of 74HC595-Pin12) + 21 (SH_CP of 74HC595-Pin11) Option set num bits"
-#define QUADRELAYS_PINOUT "Pin 16 (default), 16 to 21 (Grove evens only) Option set num bits"
+#define SERVO_PINOUT "GPIO Pin 16 (default), 16 to 21"
+#define RELAY_PINOUT "GPIO Pin 16 (default), 16 to 21 (Grove evens only)"
+#define SIPO_74HC595_PINOUT "GPIO Pins 16 (DS of 74HC595-Pin14) + 18 (ST_CP of 74HC595-Pin12) + 19 (SH_CP of 74HC595-Pin11) Option set num bits"
+#define QUADRELAYS_PINOUT "GPIO Pin 16 (default), 16 to 21 (Grove evens only) Option set num bits"
 #endif
 
 #define ACTUATOR_PINOUTSC C(SERVO_PINOUT)C(SIPO_74HC595_PINOUT)C(RELAY_PINOUT)C(QUADRELAYS_PINOUT)
@@ -186,7 +186,7 @@ const char * const ACTUATOR_RANGES[] = { ACTUATOR_RANGEC  };
 #define SIMULATOR_PINOUT "None"
 #elif defined(SoftataDevice_RPI_PICO_SHIELD)
 #define BME280_PINOUT  "I2C0 (Pins8/9 (SDA/SCL - fixed) = Address 0x77 (Alt 0x76). Embedded in driver though."
-#define DHT11_PINOUT  "OneWire: Pin 16 (default), 18 or 20"
+#define DHT11_PINOUT  "OneWire: GPIO GPIO Pin 16 (default), 18 or 20"
 #define DHTXX_PINOUT  DHT11_PINOUT
 #define URANGE_PINOUT "Digital and PWM: Pin 16 (default), 18 or 20"
 #define SIMULATOR_PINOUT "None"
@@ -235,15 +235,15 @@ const char * const SENSOR_PROPERTIES[] = { SENSOR_PROPERTIESC  };
 //Display connections
 
 #ifdef RPI_PICO_DEFAULT
-#define OLED096_PINOUT  "I2C0 (Pins4/5 (SDA/SCL) default): Address 0x78. Embedded in driver though."
-#define LCD1602_PINOUT  "I2C0 (Pins4/5 (SDA/SCL) default): Addresses (LCD)0X3E and (RGB)0X62. Embedded in driver though."
-#define NEOPIXEL_PINOUT "OneWrire: Pin 12 // Whatever 0 to 26"
+#define OLED096_PINOUT  "I2C0 (GPIO Pins4/5 (SDA/SCL) default): Address 0x78. Embedded in driver though."
+#define LCD1602_PINOUT  "I2C0 (GPIO Pins4/5 (SDA/SCL) default): Addresses (LCD)0X3E and (RGB)0X62. Embedded in driver though."
+#define NEOPIXEL_PINOUT "OneWrire: GPIO Pin 12 // Whatever 0 to 26"
 #elif defined(SoftataDevice_RPI_PICO_SHIELD)
-#define OLED096_PINOUT  "I2C0 (Pins8/9 (SDA/SCL) fixed) = Address 0x78. Embedded in driver though."
-#define LCD1602_PINOUT  "I2C0 (Pins8/9 (SDA/SCL) fixed) = Addresses (LCD)0X3E and (RGB)0X62. Embedded in driver though."
-#define NEOPIXEL_PINOUT "OneWire: Pin 16 (default), 18 or 20 (Grove yellow cable),17 or 19 or 21 (Grove white cable)"
-#define BARGRAPH_PINOUT "Pins 16 (DS of 74HC595-Pin14) + 20 (ST_CP of 74HC595-Pin12) + 21 (SH_CP of 74HC595-Pin11)"
-#define GBARGRAPH_PINOUT "Pin 16 DI (Data-MY9221) + Pin 17 DCKI (Clock-MY9221)"
+#define OLED096_PINOUT  "I2C0 (GPIO Pins8/9 (SDA/SCL) fixed) = Address 0x78. Embedded in driver though."
+#define LCD1602_PINOUT  "I2C0 (GPIO Pins8/9 (SDA/SCL) fixed) = Addresses (LCD)0X3E and (RGB)0X62. Embedded in driver though."
+#define NEOPIXEL_PINOUT "OneWire: GPIO Pin 16 (default), 18 or 20 (Grove yellow cable),17 or 19 or 21 (Grove white cable)"
+#define BARGRAPH_PINOUT "GPIO Pin 16 (DS of 74HC595-Pin14) + 20 (ST_CP of 74HC595-Pin12) + 21 (SH_CP of 74HC595-Pin11)"
+#define GBARGRAPH_PINOUT "GPIO Pin 16 DI (Data-MY9221) + Pin 17 DCKI (Clock-MY9221)"
 #endif
 
 #define DISPLAY_PINOUTSC C(OLED096_PINOUT)C(LCD1602_PINOUT)C(NEOPIXEL_PINOUT)C(BARGRAPH_PINOUT)C(GBARGRAPH_PINOUT)
