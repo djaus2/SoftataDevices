@@ -176,12 +176,14 @@ Softata
     │   softatadevice_sensor.h
     │   softatadevice_sensorsimulator.cpp
     │   softatadevice_urange.cpp
-    │   ic_74hc595_shiftRegister.cpp
-    │   ic_74hc595_shiftRegister.h
     │   servo.cpp
     │   SIPO_74HC595.cpp
-    │
-    └───
+    │   ic_74hc595_shiftRegister.h
+    │   ic_74hc595_shiftRegister.cpp
+    │   PISO_74HC165.cpp
+    │   ic_74hc165_shiftRegister.h
+    │   ic_74hc165_shiftRegister.cpp
+
 ```
 
 
