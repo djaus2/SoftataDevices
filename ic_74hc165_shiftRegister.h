@@ -24,8 +24,8 @@ class IC_74HC165_ShiftRegister
       int dataPin = 16;  
       int latchPin = 20;
       int clockPin = 21;
-      int numBytes = 1;
-      int numBits = 8;
+      int numBytes = 2;
+      int numBits = numBytes*8;
       BitOrder order = LSBFIRST;
       word value = 0;
 

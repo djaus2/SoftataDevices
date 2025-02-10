@@ -10,12 +10,14 @@
 
 bool IC_74HC165_ShiftRegister::Setup()
 {
-  dataPin = 16;   //Q7 Is data out from 165 to micro                165 Pin 9
+  dataPin = 17;   //Q7 Is data out from 165 to micro                165 Pin 9
   latchPin = 20;  //PL When low data is beung sampled. Hi latched   165 Pin 1
   clockPin = 21;  //CP Clock                                        165 Pin 2
                   // CE GND 165 (is enabled)                        165 Pin 15
                   // SE Serial for cascade input                    165 Pin 10
-  numBytes = 1;
+  
+  numBytes  = 2;
+
   numBits = 8*numBytes;
   BitOrder order = LSBFIRST;
   return Setup(NULL,0);
@@ -113,7 +115,6 @@ word IC_74HC165_ShiftRegister::readWord165()
     delayMicroseconds(5);
 
     byte value1 = shiftIn(dataPin, clockPin, order);
-    Serial.println(value1,HEX);
     byte value2 = shiftIn(dataPin, clockPin, order);
 
     if(order == MSBFIRST)
@@ -136,6 +137,9 @@ word IC_74HC165_ShiftRegister::read165(byte _numBytes )
       _numBytes = numBytes;
     else if(_numBytes<1)
       _numBytes =1;
+
+    Serial.print("_Num Bytes: ");
+    Serial.println(_numBytes);
 
     // Read in serial data via 74hc165
     if(_numBytes==1)

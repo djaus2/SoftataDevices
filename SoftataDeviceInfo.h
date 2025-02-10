@@ -82,7 +82,7 @@ enum DEVICEINPUTcapabilities { i_none=0, i_bit = 1 , i_readbyte = 2, i_readword 
 #define PISO74HC165_PINOUT "GPIO: Pin 11 or whatever 0 to 26. 3 pins required, Q , CLK and SH/LD#."
 #elif defined(SoftataDevice_RPI_PICO_SHIELD)
 #define GSWITCH_PINOUT "GPIO Pin 16 (default), 16 to 21"
-#define PISO74HC165_PINOUT "GPIO Pins 17 (D/Q of 74HC165-Pin9) + 20 (SH/LD# (Latch) of 74HC165-Pin1) + 21 (CLK of 74HC165-Pin2)"
+#define PISO74HC165_PINOUT "1 or 2 Bytes GPIO Pins 17 (D/Q of 74HC165-Pin9) + 20 (SH/LD# (Latch) of 74HC165-Pin1) + 21 (CLK of 74HC165-Pin2)"
 #endif
 
 #define DEVICEINPUT_PINOUTSC C(GSWITCH_PINOUT)C(PISO74HC165_PINOUT)

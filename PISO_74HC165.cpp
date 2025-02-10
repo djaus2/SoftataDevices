@@ -18,9 +18,10 @@ Piso74HC165::Piso74HC165(int pin)
 bool Piso74HC165::Setup()
 {
   ic165 = new IC_74HC165_ShiftRegister();
-  num_bytes = 1;
+  num_bytes = 2;
   return true;
 }
+
 
 bool Piso74HC165::Setup(byte * settings, byte numSettings)
 {
@@ -63,7 +64,7 @@ byte Piso74HC165::GetInputCapabilities()
 
 word Piso74HC165::readWord()
 {
-  return ic165->read165(2);
+  return  ic165->read165(2);
 }
 
 byte Piso74HC165::readByte()
