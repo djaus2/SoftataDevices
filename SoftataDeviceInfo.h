@@ -73,7 +73,7 @@ static int bitStuffing[] = {256,16,16,16,16,256,16};
 ///////////////////////// I N P U T S /////////////////////////////////////////////////
 
 
-enum DEVICEINPUTcapabilities { i_none=0, i_bit = 1 , i_readbyte = 2, i_readword = 4};
+enum DEVICEINPUTcapabilities { i_none=1, i_bit = 2 , i_readbyte = 4, i_readword = 8};
 
 #define DEVICEINPUT_COMMANDS C(I_getCmdsCMD)C(I_getDevicesCMD)C(I_getPinsCMD)C(I_setupDefaultCMD)C(I_setupGeneralCMD)C(i__getValueRangeCMD)C(i_readByteValueCMD)C(i_readWordValueCMD)C(i_PollBitCMD)C(i_GetnumbitsCMD)C(i_GetInstanceValueRangeCMD)C(i_GetInputCapabCMD)
 
@@ -110,7 +110,7 @@ const char * const DEVICEINPUT_RANGES[] = { DEVICEINPUT_RANGEC  };
 ///////////////////////// A C T U A T O R S /////////////////////////////////////////////////
 
 //enum actuatorcapabilities {a_singlebit,a_bitonly,a_writeonly,a_both};
-enum actuatorcapabilities { a_none=0, a_bit = 1 , a_writebyte = 2, a_writeword = 4, a_writedouble = 8 };
+enum actuatorcapabilities { a_none=1, a_bit = 2 , a_writebyte = 4, a_writeword = 8, a_writedouble = 16 };
 
 #define ACTUATOR_COMMANDS C(A_getCmdsCMD)C(A_getDevicesCMD)C(A_getPinsCMD)C(A_setupDefaultCMD)C(A_setupGeneralCMD)C(a__getValueRangeCMD)C(a_writeDoubleValueCMD)C(a_writeByteValueCMD)C(a_writeWordValueCMD)C(a_SetBitStateCMD)C(a_SetBitCMD)C(a_ClearBitCMD)C(a_ToggleBitCMD)C(a_GetnumbitsCMD)C(a_GetInstanceValueRangeCMD)C(a_GetActuatorCapabCMD)
 
@@ -155,7 +155,7 @@ const char * const ACTUATOR_RANGES[] = { ACTUATOR_RANGEC  };
 
 ///////////////////////// S E N S O R S /////////////////////////////////////////////////
 
-#define SENSOR_COMMANDS C(S_getCmdsCMD)C(S_getDevicesCMD)C(S_getPinsCMD)C(S_setupDefaultCMD)C(S_setupCMD)C(s__getPropertiesCMD)C(s_readallCMD)C(s_readCMD)C(s_getTelemetry)C(s_sendTelemetryBT)C(s_sendTelemetryToIoTHub)C(s_pause_sendTelemetry)C(s_continue_sendTelemetry)C(s_stop_sendTelemetry)
+#define SENSOR_COMMANDS C(S_getCmdsCMD)C(S_getDevicesCMD)C(S_getPinsCMD)C(S_setupDefaultCMD)C(S_setupCMD)C(s__getPropertiesCMD)C(s_readallCMD)C(s_readoneCMD)C(s_getTelemetry)C(s_sendTelemetryBT)C(s_sendTelemetryToIoTHub)C(s_pause_sendTelemetry)C(s_continue_sendTelemetry)C(s_stop_sendTelemetry)
 
 // Adds about 1sec to telemtry transmit (in second core).
 #define TELEMETRY_DOUBLE_FLASH_INBUILT_LED

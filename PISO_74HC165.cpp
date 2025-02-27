@@ -19,6 +19,7 @@ bool Piso74HC165::Setup()
 {
   ic165 = new IC_74HC165_ShiftRegister();
   num_bytes = 2;
+  num_bits = 8*num_bytes;
   return true;
 }
 
@@ -28,7 +29,10 @@ bool Piso74HC165::Setup(byte * settings, byte numSettings)
 
   ic165 = new IC_74HC165_ShiftRegister(settings,numSettings);
   if(num_settings>3)
+  {
     num_bytes = settings[3];
+    num_bits = 8*num_bytes;
+  }
   return true;
 }
 

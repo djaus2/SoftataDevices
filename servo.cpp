@@ -47,7 +47,8 @@ bool SoftataDevice_Servo::Setup(byte * settings, byte numSettings)
 
 int SoftataDevice_Servo::GetNumBits()
 {
-    Serial.println("SoftataDevice_Servo::GetNumBits()");
+    Serial.print("SoftataDevice_Servo::GetNumBits():");
+    Serial.println(num_bits);
     return num_bits;
 }
 
