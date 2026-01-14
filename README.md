@@ -3,7 +3,7 @@
 ----
 
 ### Updates
-- Various updatwes for Blazor2 app
+- Various updates for Blazor2 app
 - Added 74HC165 8/16 Bit Parallel In Serial Out (To micro) _Now works for 1 byte. 2 bytes not yet implemented. (Close)_
 - Added Grove single LED and new device class DeviceInput with (Grove) Switch. _Multibit input coming_
 - Added ActuatorCapabilities property to each actuator to indicate which actuator methods apply and hence what data is required.
