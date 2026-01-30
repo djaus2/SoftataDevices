@@ -3,6 +3,7 @@
 ----
 
 ### Updates
+- Watchdog: _(For RPi2 update)_ Code has been updated to just use the RPI wrapper at: [pico-sdk/hardware#hardware_watchdog](https://www.raspberrypi.com/documentation/pico-sdk/hardware.html#group_hardware_watchdog)
 - Various updates for Blazor2 app
 - Added 74HC165 8/16 Bit Parallel In Serial Out (To micro) _Now works for 1 byte. 2 bytes not yet implemented. (Close)_
 - Added Grove single LED and new device class DeviceInput with (Grove) Switch. _Multibit input coming_
@@ -17,7 +18,7 @@
  
 ----
 
-Updared base Arduino Softata code from the GitHub [djaus2/Soft-ata](https://github.com/djaus2/Soft-ata) repository.
+Updated base Arduino Softata code from the GitHub [djaus2/Soft-ata](https://github.com/djaus2/Soft-ata) repository.
 
 > This is the Arduino code for interacting with devices from a Raspbery Pi Pico W. The top level code that orchestrates the remote interaction with these devices is not included here. That remains in the Softa-ata repsository in the Softata sketch there and  is subject to an update for this.  
 > Soft-ata/code/***SoftaaConsole2*** app exercises this library. 
@@ -102,7 +103,8 @@ The files in this repository are those from the src folder from the Softata Sket
 
 ## Target Device
 The top level code Softa-ta/Softata targets a RPi Pico W. using the [PhilHower BSP](https://github.com/earlephilhower/arduino-pico). This code should work with other Arduinodevices except the inclusion of the Watchdog timer mechanism.
-Pico 2W wil be tested in the near future.
+Pico 2W wil be tested in the near future. <-- Code has been updated to just use the RPI wrapper at:  
+[pico-sdk/hardware#hardware_watchdog](https://www.raspberrypi.com/documentation/pico-sdk/hardware.html#group_hardware_watchdog)
 
 ## Sample Code
 There is one example sketch thus far in the examples folder, interrogate. This will run on a RPi Pico W configured for Arduino and return information about supported devices without actually needing any to be connected.
